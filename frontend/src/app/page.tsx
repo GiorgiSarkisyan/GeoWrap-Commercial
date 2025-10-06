@@ -87,9 +87,50 @@ export default function Page() {
           playsInline
           className={styles["background-video"]}
         >
-          <source src="/background.mov" type="video/mp4" />
+          <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+      </section>
+      <section className={styles["about-section"]}>
+        <div className={styles["about-content"]}>
+          <div className={styles["about-content-informative"]}>
+            <div className={styles["about-content-text"]}>
+              <h2 className={styles["about-content-title"]}>About Us</h2>
+              <h3 className={styles["about-content-secondary"]}>
+                Turning Everyday Cars Into Eye-Catching Masterpieces
+              </h3>
+              <p className={styles["about-content-description"]}>
+                GeoWrap is a leading provider of innovative geospatial
+                solutions, dedicated to transforming the way businesses and
+                organizations harness the power of location data. With a team of
+                experienced professionals and cutting-edge technology, we
+                deliver tailored services that meet the unique needs of our
+                clients across various industries.
+              </p>
+            </div>
+            <div className={styles["about-content-boxes"]}>
+              <div className={styles["about-content-box"]}>
+                <h3 className={styles["about-content-box-subtitle"]}>10+</h3>
+                <span className={styles["about-content-box-span"]}>
+                  Years Experience
+                </span>
+              </div>
+              <div className={styles["about-content-box"]}>
+                <h3 className={styles["about-content-box-subtitle"]}>500+</h3>
+                <span className={styles["about-content-box-span"]}>
+                  Clients
+                </span>
+              </div>
+              <div className={styles["about-content-box"]}>
+                <h3 className={styles["about-content-box-subtitle"]}>24/7</h3>
+                <span className={styles["about-content-box-span"]}>
+                  Support
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className={styles["about-content-image"]}></div>
+        </div>
       </section>
     </div>
   );
