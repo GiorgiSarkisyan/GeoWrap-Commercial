@@ -26,8 +26,8 @@ export default function Page() {
           <Image
             src="/images/cropped.png"
             alt="geo-wrap-logo"
-            width={260}
-            height={60}
+            width={235}
+            height={55}
           />
           <nav className={styles["nav-wrapper"]}>
             <ul className={styles["list"]}>
