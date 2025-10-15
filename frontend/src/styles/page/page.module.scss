@@ -1,5 +1,45 @@
 @use "../variables.module" as *;
 
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@keyframes backdropFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .flag-wrapper {
   display: inline-flex;
   align-items: center;
@@ -371,12 +411,121 @@
   }
 }
 
-.modal-overlay {
+.modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  animation: backdropFadeIn 0.15s ease forwards;
+  will-change: opacity;
+
+  &.fade-out {
+    animation: backdropFadeOut 0.15s ease forwards;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2c2a2a;
+  max-width: 800px;
+  width: 90%;
+  height: 700px;
+  border: 0.5px solid #3a3838;
   z-index: 999;
+  will-change: transform, opacity;
+  animation: modalFadeIn 0.15s ease forwards;
+
+  &.fade-out {
+    animation: modalFadeOut 0.15s ease forwards;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .modal-image {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 50%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.3) 30%,
+          rgba(0, 0, 0, 0.6) 100%
+        );
+        z-index: 1;
+      }
+    }
+
+    .modal-close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 1000;
+      transition: color 0.3s;
+      background-color: #2c2a2a;
+      opacity: 80%;
+      transition: 0.15s;
+
+      &:hover {
+        opacity: 100%;
+      }
+    }
+
+    .modal-content-text {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 40px;
+      gap: 20px;
+
+      .modal-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .modal-header-title {
+          font-family: var(--font-oswald);
+          font-weight: 200;
+          font-size: 38px;
+          color: white;
+          margin-bottom: 10px;
+        }
+
+        .modal-header-subtitle {
+          font-family: var(--font-montserrat);
+          font-size: 20px;
+          font-weight: 400;
+          display: inline-block;
+          color: #b0b0b0;
+        }
+      }
+
+      .modal-paragraph {
+        font-family: var(--font-montserrat);
+        font-size: 16px;
+        color: #808080;
+      }
+    }
+  }
 }
