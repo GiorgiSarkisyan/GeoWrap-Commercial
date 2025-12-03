@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "../styles/page/page.module.scss";
 import { FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsEye, BsInstagram, BsTelephone } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import "swiper/css";
