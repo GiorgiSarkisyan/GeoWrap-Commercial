@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "../styles/page/page.module.scss";
 import { FaChevronDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsEye, BsInstagram, BsTelephone } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import "swiper/css";
@@ -19,6 +19,7 @@ import {
 import { BiEnvelope } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
+import Typed from "typed.js";
 
 const languages = [
   { code: "en", label: "English", flag: "/images/flags/en.png" },
@@ -213,6 +214,34 @@ export default function Page() {
     setOpen(false);
   };
 
+  const el = useRef<HTMLSpanElement | null>(null);
+  const typedInstance = useRef<Typed | null>(null);
+
+  useEffect(() => {
+    if (!el.current) return;
+
+    typedInstance.current = new Typed(el.current, {
+      strings: [
+        "masterpiece",
+        "work of art",
+        "legend",
+        "showpiece",
+        "masterwork",
+        "head turner",
+        "showstopper",
+      ],
+      typeSpeed: 110,
+      backSpeed: 50,
+      loop: true,
+      startDelay: 1000,
+      backDelay: 0,
+    });
+
+    return () => {
+      typedInstance.current?.destroy();
+    };
+  }, []);
+
   return (
     <div>
       <header className={styles["header"]}>
@@ -284,6 +313,18 @@ export default function Page() {
           <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <div className={styles["main-content"]}>
+          <div className={styles["main-content-inner"]}>
+            <h1>
+              This is how your ride becomes a <span ref={el}></span>
+            </h1>
+            <button> Our Workshop </button>
+          </div>
+          <div className={styles["scroll-indicator"]}>
+            <span>Scroll to explore</span>
+            <FaChevronDown className={styles["scroll-arrow"]} />
+          </div>
+        </div>
       </section>
       <section className={styles["about-section"]}>
         <div className={styles["about-content"]}>
