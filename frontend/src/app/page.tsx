@@ -20,6 +20,7 @@ import { BiEnvelope } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
 import Typed from "typed.js";
+import { useLenis } from "lenis/react";
 
 const languages = [
   { code: "en", label: "English", flag: "/images/flags/en.png" },
@@ -192,6 +193,23 @@ export default function Page() {
     (typeof services)[0] | null
   >(null);
   const [isClosing, setIsClosing] = useState(false);
+  const lenis = useLenis();
+
+  const scrollToSection = (id: string) => {
+    if (!lenis) return;
+
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const headerOffset = 95;
+    const elementPosition = element.offsetTop - headerOffset;
+
+    lenis.scrollTo(elementPosition, {
+      duration: 1.2,
+      easing: (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+    });
+  };
 
   const closeModalWithAnimation = () => {
     setIsClosing(true);
@@ -216,6 +234,7 @@ export default function Page() {
 
   const el = useRef<HTMLSpanElement | null>(null);
   const typedInstance = useRef<Typed | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!el.current) return;
@@ -223,18 +242,21 @@ export default function Page() {
     typedInstance.current = new Typed(el.current, {
       strings: [
         "masterpiece",
+        "elegance",
         "work of art",
         "legend",
         "showpiece",
         "masterwork",
         "head turner",
         "showstopper",
+        "refinement",
+        "centerpiece",
       ],
       typeSpeed: 110,
       backSpeed: 50,
       loop: true,
       startDelay: 1000,
-      backDelay: 0,
+      backDelay: 500,
     });
 
     return () => {
@@ -242,22 +264,82 @@ export default function Page() {
     };
   }, []);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    let ticking = false;
+    let heroHeight = 0;
+
+    const updateHeroHeight = () => {
+      const heroEl = document.querySelector(
+        `.${styles["main-section"]}`
+      ) as HTMLElement | null;
+      heroHeight = heroEl ? heroEl.offsetHeight : window.innerHeight;
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const limit = Math.max(heroHeight * 0.6, 1);
+        const ratio = Math.min(Math.max(scrollY / limit, 0), 1);
+        header.style.backgroundColor = `rgba(33, 32, 32, ${ratio})`;
+        ticking = false;
+      });
+    };
+
+    updateHeroHeight();
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateHeroHeight);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateHeroHeight);
+    };
+  }, []);
+
   return (
     <div>
-      <header className={styles["header"]}>
+      <header ref={headerRef} className={styles["header"]}>
         <div className={styles["header-navigator"]}>
           <Image
-            src="/images/cropped.png"
+            src="/images/no-bg.png"
             alt="geo-wrap-logo"
             width={235}
             height={55}
+            onClick={() => scrollToSection("hero")}
+            style={{ cursor: "pointer" }}
           />
           <nav className={styles["nav-wrapper"]}>
             <ul className={styles["list"]}>
-              <li className={styles["list-item"]}>About us</li>
-              <li className={styles["list-item"]}>Services</li>
-              <li className={styles["list-item"]}>Workshop</li>
-              <li className={styles["list-item"]}>Contact</li>
+              <li
+                className={styles["list-item"]}
+                onClick={() => scrollToSection("about")}
+              >
+                About us
+              </li>
+              <li
+                className={styles["list-item"]}
+                onClick={() => scrollToSection("services")}
+              >
+                Services
+              </li>
+              <li
+                className={styles["list-item"]}
+                onClick={() => scrollToSection("workshop")}
+              >
+                Workshop
+              </li>
+              <li
+                className={styles["list-item"]}
+                onClick={() => scrollToSection("contact")}
+              >
+                Contact
+              </li>
             </ul>
           </nav>
         </div>
@@ -302,7 +384,7 @@ export default function Page() {
         </div>
       </header>
 
-      <section className={styles["main-section"]}>
+      <section id="hero" className={styles["main-section"]}>
         <video
           autoPlay
           muted
@@ -318,7 +400,9 @@ export default function Page() {
             <h1>
               This is how your ride becomes a <span ref={el}></span>
             </h1>
-            <button> Our Workshop </button>
+            <button onClick={() => scrollToSection("workshop")}>
+              Our Workshop
+            </button>
           </div>
           <div className={styles["scroll-indicator"]}>
             <span>Scroll to explore</span>
@@ -326,7 +410,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className={styles["about-section"]}>
+      <section id="about" className={styles["about-section"]}>
         <div className={styles["about-content"]}>
           <div className={styles["about-content-informative"]}>
             <div className={styles["about-content-inner"]}>
@@ -372,7 +456,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className={styles["service-section"]}>
+      <section id="services" className={styles["service-section"]}>
         <div className={styles["service-content"]}>
           <h2 className={styles["service-title"]}>Our Services</h2>
           <div className={styles["service-cards-container"]}>
@@ -441,7 +525,7 @@ export default function Page() {
           </div>
         </>
       )}
-      <section className={styles["workshop-section"]}>
+      <section id="workshop" className={styles["workshop-section"]}>
         <div className={styles["workshop-header"]}>
           <h2 className={styles["workshop-section-title"]}>Workshop</h2>
           <span className={styles["workshop-section-second-title"]}>
@@ -493,7 +577,7 @@ export default function Page() {
           <div className="custom-pagination"></div>
         </div>
       </section>
-      <section className={styles["contact-section"]}>
+      <section id="contact" className={styles["contact-section"]}>
         <div className={styles["contact-content"]}>
           <div className={styles["contact-content-informational"]}>
             <div className={styles["contact-content-titles"]}>
