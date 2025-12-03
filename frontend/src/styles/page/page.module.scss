@@ -793,12 +793,11 @@
             }
           }
 
-          /* keep links that wrap label/text laid out the same */
           .contact-content-contact-link {
             display: flex;
             align-items: center;
             gap: 15px;
-            color: inherit; /* inherit text color from parent */
+            color: inherit;
             text-decoration: none;
           }
 
