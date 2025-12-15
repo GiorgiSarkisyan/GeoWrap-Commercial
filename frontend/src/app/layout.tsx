@@ -1,6 +1,7 @@
 import "../styles/global.scss";
 import { Montserrat, Oswald, Exo_2 } from "next/font/google";
-import ReactLenis from "lenis/react";
+import { LoadingProvider } from "../contexts/LoadingContext";
+import Wrapper from "./wrapper";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -19,18 +20,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${oswald.variable} ${exo2.variable}`}
       >
-        <ReactLenis
-          root
-          options={{
-            duration: 2,
-            smoothWheel: true,
-            wheelMultiplier: 0.6,
-            touchMultiplier: 1.1,
-            lerp: 0.4,
-          }}
-        >
-          {children}
-        </ReactLenis>
+        <LoadingProvider>
+          <Wrapper>{children}</Wrapper>
+        </LoadingProvider>
       </body>
     </html>
   );

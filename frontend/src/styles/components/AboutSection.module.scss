@@ -1,0 +1,119 @@
+@use "../variables.module" as *;
+
+.about-section {
+  height: 90dvh;
+  background-color: #2c2a2a;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $box-shadow-default;
+  user-select: none;
+
+  .about-content {
+    display: flex;
+    background-color: #212020;
+    gap: 20px;
+    padding: 30px;
+    height: 680px;
+    max-width: 1450px;
+    margin: 0 auto;
+    box-shadow: $box-shadow-default;
+    border-radius: 5px;
+
+    .about-content-informative {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .about-content-inner {
+        padding: 45px;
+      }
+
+      .about-content-text {
+        padding-bottom: 18px;
+        border-bottom: 1px solid #2c2a2a;
+
+        .about-content-title {
+          font-family: var(--font-oswald);
+          font-size: 14px;
+          color: #7d7d7d;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          position: relative;
+          margin-bottom: 20px;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 78px;
+            height: 2px;
+            background-color: #7d7d7d;
+            margin-top: 4px;
+          }
+        }
+
+        .about-content-secondary {
+          font-family: var(--font-montserrat);
+          font-size: 46px;
+          line-height: 1;
+          margin-bottom: 20px;
+
+          span {
+            color: #7d7d7d;
+          }
+        }
+        .about-content-description {
+          font-family: var(--font-montserrat);
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .about-content-image {
+      flex: 1;
+      background-image: url("/images/about-us4.jpeg");
+      background-size: cover;
+      background-position: center 70%;
+      background-repeat: no-repeat;
+      position: relative;
+
+      .about-content-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #212020;
+        color: white;
+        padding: 10px 20px;
+        font-family: var(--font-oswald);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 80%;
+        transition: 0.3s;
+
+        &:hover {
+          color: black;
+          background: white;
+        }
+      }
+    }
+    .about-content-boxes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .about-content-box-subtitle {
+        font-size: 45px;
+        font-family: var(--font-oswald);
+        color: #7d7d7d;
+      }
+
+      .about-content-box-span {
+        font-family: var(--font-oswald);
+      }
+    }
+  }
+}
