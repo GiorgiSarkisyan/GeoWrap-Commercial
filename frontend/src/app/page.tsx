@@ -143,7 +143,7 @@ const services = [
   {
     id: 5,
     name: "Wheel Powder Coating & Restoration",
-    imageUrl: "/images/services/wheel-powder-coating-paing.jpg",
+    imageUrl: "/images/services/wheel-powder-coating-paint.jpg",
     description: "Revitalize your wheels with a durable and stylish finish.",
     paragraph:
       "We restore and refinish your wheels with professional powder coating for a smooth, chip-resistant surface. Choose from a variety of finishes and colors to give your wheels a factory-fresh look while protecting them from rust and wear.",
@@ -330,10 +330,17 @@ export default function Page() {
       return;
 
     // Set initial states
-    gsap.set([aboutTitleRef.current, aboutSecondaryRef.current, aboutDescriptionRef.current], {
-      opacity: 0,
-      y: 50,
-    });
+    gsap.set(
+      [
+        aboutTitleRef.current,
+        aboutSecondaryRef.current,
+        aboutDescriptionRef.current,
+      ],
+      {
+        opacity: 0,
+        y: 50,
+      }
+    );
 
     gsap.set(aboutBoxesRef.current.children, {
       opacity: 0,
@@ -615,17 +622,32 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="about" ref={aboutSectionRef} className={styles["about-section"]}>
+      <section
+        id="about"
+        ref={aboutSectionRef}
+        className={styles["about-section"]}
+      >
         <div className={styles["about-content"]}>
           <div className={styles["about-content-informative"]}>
             <div className={styles["about-content-inner"]}>
               <div className={styles["about-content-text"]}>
-                <h2 ref={aboutTitleRef} className={styles["about-content-title"]}>About Us</h2>
-                <h3 ref={aboutSecondaryRef} className={styles["about-content-secondary"]}>
+                <h2
+                  ref={aboutTitleRef}
+                  className={styles["about-content-title"]}
+                >
+                  About Us
+                </h2>
+                <h3
+                  ref={aboutSecondaryRef}
+                  className={styles["about-content-secondary"]}
+                >
                   Turning Everyday Cars Into{" "}
                   <span>Eye-Catching Masterpieces</span>
                 </h3>
-                <p ref={aboutDescriptionRef} className={styles["about-content-description"]}>
+                <p
+                  ref={aboutDescriptionRef}
+                  className={styles["about-content-description"]}
+                >
                   GeoWrap is a leading provider of innovative geospatial
                   solutions, dedicated to transforming the way businesses and
                   organizations harness the power of location data. With a team
@@ -634,7 +656,10 @@ export default function Page() {
                   clients across various industries.
                 </p>
               </div>
-              <div ref={aboutBoxesRef} className={styles["about-content-boxes"]}>
+              <div
+                ref={aboutBoxesRef}
+                className={styles["about-content-boxes"]}
+              >
                 <div className={styles["about-content-box"]}>
                   <h3 className={styles["about-content-box-subtitle"]}>5+</h3>
                   <span className={styles["about-content-box-span"]}>
@@ -657,14 +682,25 @@ export default function Page() {
             </div>
           </div>
           <div ref={aboutImageRef} className={styles["about-content-image"]}>
-            <div ref={aboutBadgeRef} className={styles["about-content-badge"]}>Premium Vehicle</div>
+            <div ref={aboutBadgeRef} className={styles["about-content-badge"]}>
+              Premium Vehicle
+            </div>
           </div>
         </div>
       </section>
-      <section id="services" ref={serviceSectionRef} className={styles["service-section"]}>
+      <section
+        id="services"
+        ref={serviceSectionRef}
+        className={styles["service-section"]}
+      >
         <div className={styles["service-content"]}>
-          <h2 ref={serviceTitleRef} className={styles["service-title"]}>Our Services</h2>
-          <div ref={serviceCardsRef} className={styles["service-cards-container"]}>
+          <h2 ref={serviceTitleRef} className={styles["service-title"]}>
+            Our Services
+          </h2>
+          <div
+            ref={serviceCardsRef}
+            className={styles["service-cards-container"]}
+          >
             {services.map((service) => (
               <div
                 key={service.id}
