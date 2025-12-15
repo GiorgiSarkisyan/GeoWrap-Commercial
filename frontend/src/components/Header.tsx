@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
 import { useLenis } from "lenis/react";
 import { useLanguage } from "../contexts/LanguageContext";
-import styles from "../styles/page/page.module.scss";
+import styles from "../styles/components/Header.module.scss";
 
 const languages = [
   { code: "en" as const, label: "English", flag: "/images/flags/en.png" },

@@ -3,7 +3,7 @@ import { BsInstagram, BsTelephone } from "react-icons/bs";
 import { BiEnvelope } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
-import styles from "../styles/page/page.module.scss";
+import styles from "../styles/components/ContactSection.module.scss";
 
 export default function ContactSection() {
   const { t } = useLanguage();

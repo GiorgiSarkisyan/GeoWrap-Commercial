@@ -19,15 +19,14 @@ const translations: Record<Language, Translations> = {
   ru,
 };
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
+const getInitialLanguage = (): Language => {
+  if (typeof window === "undefined") return "en";
+  const savedLanguage = localStorage.getItem("language");
+  return (savedLanguage === "en" || savedLanguage === "ru") ? savedLanguage : "en";
+};
 
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as Language;
-    if (savedLanguage && (savedLanguage === "en" || savedLanguage === "ru")) {
-      setLanguageState(savedLanguage);
-    }
-  }, []);
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

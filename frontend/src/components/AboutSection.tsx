@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
-import styles from "../styles/page/page.module.scss";
+import styles from "../styles/components/AboutSection.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

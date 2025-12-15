@@ -1,15 +1,21 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { useLenis } from "lenis/react";
 import { useLanguage } from "../contexts/LanguageContext";
-import styles from "../styles/page/page.module.scss";
+import styles from "../styles/components/HeroSection.module.scss";
 
 export default function HeroSection() {
   const el = useRef<HTMLSpanElement | null>(null);
   const typedInstance = useRef<{ destroy: () => void } | null>(null);
+  const [mounted, setMounted] = useState(false);
   const lenis = useLenis();
   const { t, language } = useLanguage();
+
+  // Wait for hydration to complete
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollToSection = (id: string) => {
     if (!lenis) return;
@@ -22,13 +28,19 @@ export default function HeroSection() {
 
     lenis.scrollTo(elementPosition, {
       duration: 1.2,
-      easing: (t) =>
+      easing: ( t) =>
         t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
     });
   };
 
   useEffect(() => {
-    if (!el.current) return;
+    if (!el.current || !mounted) return;
+
+    // Destroy existing instance if it exists
+    if (typedInstance.current) {
+      typedInstance.current.destroy();
+      typedInstance.current = null;
+    }
 
     const initTyped = async () => {
       const TypedModule = (await import("typed.js")).default;
@@ -46,9 +58,12 @@ export default function HeroSection() {
     initTyped();
 
     return () => {
-      typedInstance.current?.destroy();
+      if (typedInstance.current) {
+        typedInstance.current.destroy();
+        typedInstance.current = null;
+      }
     };
-  }, [language]);
+  }, [language, mounted, t.typed]);
 
   return (
     <section id="hero" className={styles["main-section"]}>

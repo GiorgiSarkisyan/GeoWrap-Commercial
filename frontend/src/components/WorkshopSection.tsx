@@ -7,7 +7,7 @@ import {
   Pagination,
   Autoplay,
 } from "swiper/modules";
-import styles from "../styles/page/page.module.scss";
+import styles from "../styles/components/WorkshopSection.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
