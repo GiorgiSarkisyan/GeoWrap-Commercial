@@ -21,6 +21,10 @@ import { CiLocationOn } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
 import Typed from "typed.js";
 import { useLenis } from "lenis/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const languages = [
   { code: "en", label: "English", flag: "/images/flags/en.png" },
@@ -235,6 +239,16 @@ export default function Page() {
   const el = useRef<HTMLSpanElement | null>(null);
   const typedInstance = useRef<Typed | null>(null);
   const headerRef = useRef<HTMLElement | null>(null);
+  const aboutSectionRef = useRef<HTMLElement | null>(null);
+  const aboutTitleRef = useRef<HTMLHeadingElement | null>(null);
+  const aboutSecondaryRef = useRef<HTMLHeadingElement | null>(null);
+  const aboutDescriptionRef = useRef<HTMLParagraphElement | null>(null);
+  const aboutBoxesRef = useRef<HTMLDivElement | null>(null);
+  const aboutImageRef = useRef<HTMLDivElement | null>(null);
+  const aboutBadgeRef = useRef<HTMLDivElement | null>(null);
+  const serviceSectionRef = useRef<HTMLElement | null>(null);
+  const serviceTitleRef = useRef<HTMLHeadingElement | null>(null);
+  const serviceCardsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!el.current) return;
@@ -299,6 +313,197 @@ export default function Page() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", updateHeroHeight);
+    };
+  }, []);
+
+  // GSAP animations for About Us section
+  useEffect(() => {
+    if (
+      !aboutSectionRef.current ||
+      !aboutTitleRef.current ||
+      !aboutSecondaryRef.current ||
+      !aboutDescriptionRef.current ||
+      !aboutBoxesRef.current ||
+      !aboutImageRef.current ||
+      !aboutBadgeRef.current
+    )
+      return;
+
+    // Set initial states
+    gsap.set([aboutTitleRef.current, aboutSecondaryRef.current, aboutDescriptionRef.current], {
+      opacity: 0,
+      y: 50,
+    });
+
+    gsap.set(aboutBoxesRef.current.children, {
+      opacity: 0,
+      scale: 0.8,
+      y: 30,
+    });
+
+    gsap.set(aboutImageRef.current, {
+      opacity: 0,
+      scale: 0.7,
+      rotationY: 15,
+      rotationZ: -5,
+    });
+
+    gsap.set(aboutBadgeRef.current, {
+      opacity: 0,
+      scale: 0,
+      rotation: -10,
+    });
+
+    // Create timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: aboutSectionRef.current,
+        start: "top 70%",
+        end: "bottom 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Animate title
+    tl.to(aboutTitleRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    // Animate secondary title
+    tl.to(
+      aboutSecondaryRef.current,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      "-=0.5"
+    );
+
+    // Animate description
+    tl.to(
+      aboutDescriptionRef.current,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      "-=0.5"
+    );
+
+    // Animate boxes with stagger
+    tl.to(
+      aboutBoxesRef.current.children,
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "back.out(1.7)",
+      },
+      "-=0.4"
+    );
+
+    // Animate image with dramatic entrance
+    tl.to(
+      aboutImageRef.current,
+      {
+        opacity: 1,
+        scale: 1,
+        rotationY: 0,
+        rotationZ: 0,
+        duration: 1.2,
+        ease: "power4.out",
+      },
+      "-=1"
+    );
+
+    // Animate badge with bounce
+    tl.to(
+      aboutBadgeRef.current,
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.7,
+        ease: "elastic.out(1, 0.5)",
+      },
+      "-=0.5"
+    );
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  // GSAP animations for Services section
+  useEffect(() => {
+    if (
+      !serviceSectionRef.current ||
+      !serviceTitleRef.current ||
+      !serviceCardsRef.current
+    )
+      return;
+
+    // Set initial states
+    gsap.set(serviceTitleRef.current, {
+      opacity: 0,
+      y: 60,
+      scale: 0.9,
+    });
+
+    gsap.set(serviceCardsRef.current.children, {
+      opacity: 0,
+      y: 80,
+      scale: 0.85,
+      rotationX: 15,
+    });
+
+    // Create timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: serviceSectionRef.current,
+        start: "top 70%",
+        end: "bottom 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Animate title with dynamic effect
+    tl.to(serviceTitleRef.current, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    // Animate service cards with stagger
+    tl.to(
+      serviceCardsRef.current.children,
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        duration: 0.8,
+        stagger: {
+          each: 0.1,
+          from: "start",
+        },
+        ease: "power3.out",
+      },
+      "-=0.6"
+    );
+
+    return () => {
+      tl.kill();
     };
   }, []);
 
@@ -410,17 +615,17 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="about" className={styles["about-section"]}>
+      <section id="about" ref={aboutSectionRef} className={styles["about-section"]}>
         <div className={styles["about-content"]}>
           <div className={styles["about-content-informative"]}>
             <div className={styles["about-content-inner"]}>
               <div className={styles["about-content-text"]}>
-                <h2 className={styles["about-content-title"]}>About Us</h2>
-                <h3 className={styles["about-content-secondary"]}>
+                <h2 ref={aboutTitleRef} className={styles["about-content-title"]}>About Us</h2>
+                <h3 ref={aboutSecondaryRef} className={styles["about-content-secondary"]}>
                   Turning Everyday Cars Into{" "}
                   <span>Eye-Catching Masterpieces</span>
                 </h3>
-                <p className={styles["about-content-description"]}>
+                <p ref={aboutDescriptionRef} className={styles["about-content-description"]}>
                   GeoWrap is a leading provider of innovative geospatial
                   solutions, dedicated to transforming the way businesses and
                   organizations harness the power of location data. With a team
@@ -429,7 +634,7 @@ export default function Page() {
                   clients across various industries.
                 </p>
               </div>
-              <div className={styles["about-content-boxes"]}>
+              <div ref={aboutBoxesRef} className={styles["about-content-boxes"]}>
                 <div className={styles["about-content-box"]}>
                   <h3 className={styles["about-content-box-subtitle"]}>5+</h3>
                   <span className={styles["about-content-box-span"]}>
@@ -451,15 +656,15 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className={styles["about-content-image"]}>
-            <div className={styles["about-content-badge"]}>Premium Vehicle</div>
+          <div ref={aboutImageRef} className={styles["about-content-image"]}>
+            <div ref={aboutBadgeRef} className={styles["about-content-badge"]}>Premium Vehicle</div>
           </div>
         </div>
       </section>
-      <section id="services" className={styles["service-section"]}>
+      <section id="services" ref={serviceSectionRef} className={styles["service-section"]}>
         <div className={styles["service-content"]}>
-          <h2 className={styles["service-title"]}>Our Services</h2>
-          <div className={styles["service-cards-container"]}>
+          <h2 ref={serviceTitleRef} className={styles["service-title"]}>Our Services</h2>
+          <div ref={serviceCardsRef} className={styles["service-cards-container"]}>
             {services.map((service) => (
               <div
                 key={service.id}
