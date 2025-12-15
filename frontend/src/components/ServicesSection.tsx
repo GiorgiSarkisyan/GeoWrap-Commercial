@@ -6,6 +6,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import styles from "../styles/components/ServicesSection.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLenis } from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,12 +25,13 @@ const serviceImages = [
 
 export default function ServicesSection() {
   const { t } = useLanguage();
+  const lenis = useLenis();
   const services = t.services.items.map((item, index) => ({
     ...item,
     id: index + 1,
     imageUrl: serviceImages[index].imageUrl,
   }));
-  
+
   const [selectedService, setSelectedService] = useState<
     (typeof services)[0] | null
   >(null);
@@ -48,10 +50,14 @@ export default function ServicesSection() {
 
   const openModal = (service: (typeof services)[0]) => {
     setSelectedService(service);
+    document.body.style.overflow = "static";
+    lenis?.stop();
   };
 
   const closeModal = () => {
     setSelectedService(null);
+    document.body.style.overflow = "";
+    lenis?.start();
   };
 
   useEffect(() => {
@@ -62,13 +68,7 @@ export default function ServicesSection() {
     )
       return;
 
-    // Set initial states
-    gsap.set(serviceTitleRef.current, {
-      opacity: 0,
-      y: 60,
-      scale: 0.9,
-    });
-
+    // Set initial states for cards only (title will remain static)
     gsap.set(serviceCardsRef.current.children, {
       opacity: 0,
       y: 80,
@@ -76,42 +76,30 @@ export default function ServicesSection() {
       rotationX: 15,
     });
 
-    // Create timeline with ScrollTrigger
+    // Create timeline with ScrollTrigger that only runs once (on first downward scroll)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: serviceSectionRef.current,
         start: "top 70%",
-        end: "bottom 80%",
-        toggleActions: "play none none reverse",
+        // don't reverse; play once and remove the trigger
+        toggleActions: "play none none none",
+        once: true,
       },
     });
 
-    // Animate title with dynamic effect
-    tl.to(serviceTitleRef.current, {
+    // Animate service cards with stagger (title is not animated)
+    tl.to(serviceCardsRef.current.children, {
       opacity: 1,
       y: 0,
       scale: 1,
-      duration: 1,
-      ease: "power4.out",
-    });
-
-    // Animate service cards with stagger
-    tl.to(
-      serviceCardsRef.current.children,
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        rotationX: 0,
-        duration: 0.8,
-        stagger: {
-          each: 0.1,
-          from: "start",
-        },
-        ease: "power3.out",
+      rotationX: 0,
+      duration: 0.8,
+      stagger: {
+        each: 0.1,
+        from: "start",
       },
-      "-=0.6"
-    );
+      ease: "power3.out",
+    });
 
     return () => {
       tl.kill();
@@ -120,10 +108,19 @@ export default function ServicesSection() {
 
   return (
     <>
-      <section id="services" ref={serviceSectionRef} className={styles["service-section"]}>
+      <section
+        id="services"
+        ref={serviceSectionRef}
+        className={styles["service-section"]}
+      >
         <div className={styles["service-content"]}>
-          <h2 ref={serviceTitleRef} className={styles["service-title"]}>{t.services.title}</h2>
-          <div ref={serviceCardsRef} className={styles["service-cards-container"]}>
+          <h2 ref={serviceTitleRef} className={styles["service-title"]}>
+            {t.services.title}
+          </h2>
+          <div
+            ref={serviceCardsRef}
+            className={styles["service-cards-container"]}
+          >
             {services.map((service) => (
               <div
                 key={service.id}

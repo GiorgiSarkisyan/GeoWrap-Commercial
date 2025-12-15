@@ -30,22 +30,22 @@ export default function AboutSection() {
       return;
 
     // Set initial states
-    gsap.set([aboutTitleRef.current, aboutSecondaryRef.current, aboutDescriptionRef.current], {
-      opacity: 0,
-      y: 50,
-    });
+    gsap.set(
+      [
+        aboutTitleRef.current,
+        aboutSecondaryRef.current,
+        aboutDescriptionRef.current,
+      ],
+      {
+        opacity: 0,
+        y: 50,
+      }
+    );
 
     gsap.set(aboutBoxesRef.current.children, {
       opacity: 0,
       scale: 0.8,
       y: 30,
-    });
-
-    gsap.set(aboutImageRef.current, {
-      opacity: 0,
-      scale: 0.7,
-      rotationY: 15,
-      rotationZ: -5,
     });
 
     gsap.set(aboutBadgeRef.current, {
@@ -110,20 +110,6 @@ export default function AboutSection() {
       "-=0.4"
     );
 
-    // Animate image with dramatic entrance
-    tl.to(
-      aboutImageRef.current,
-      {
-        opacity: 1,
-        scale: 1,
-        rotationY: 0,
-        rotationZ: 0,
-        duration: 1.2,
-        ease: "power4.out",
-      },
-      "-=1"
-    );
-
     // Animate badge with bounce
     tl.to(
       aboutBadgeRef.current,
@@ -143,17 +129,28 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" ref={aboutSectionRef} className={styles["about-section"]}>
+    <section
+      id="about"
+      ref={aboutSectionRef}
+      className={styles["about-section"]}
+    >
       <div className={styles["about-content"]}>
         <div className={styles["about-content-informative"]}>
           <div className={styles["about-content-inner"]}>
             <div className={styles["about-content-text"]}>
-              <h2 ref={aboutTitleRef} className={styles["about-content-title"]}>{t.about.title}</h2>
-              <h3 ref={aboutSecondaryRef} className={styles["about-content-secondary"]}>
-                {t.about.subtitle}{" "}
-                <span>{t.about.subtitleHighlight}</span>
+              <h2 ref={aboutTitleRef} className={styles["about-content-title"]}>
+                {t.about.title}
+              </h2>
+              <h3
+                ref={aboutSecondaryRef}
+                className={styles["about-content-secondary"]}
+              >
+                {t.about.subtitle} <span>{t.about.subtitleHighlight}</span>
               </h3>
-              <p ref={aboutDescriptionRef} className={styles["about-content-description"]}>
+              <p
+                ref={aboutDescriptionRef}
+                className={styles["about-content-description"]}
+              >
                 {t.about.description}
               </p>
             </div>
@@ -180,7 +177,9 @@ export default function AboutSection() {
           </div>
         </div>
         <div ref={aboutImageRef} className={styles["about-content-image"]}>
-          <div ref={aboutBadgeRef} className={styles["about-content-badge"]}>{t.about.badge}</div>
+          <div ref={aboutBadgeRef} className={styles["about-content-badge"]}>
+            {t.about.badge}
+          </div>
         </div>
       </div>
     </section>

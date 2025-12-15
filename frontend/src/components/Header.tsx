@@ -16,8 +16,9 @@ export default function Header() {
   const { language, setLanguage, t } = useLanguage();
   const headerRef = useRef<HTMLElement | null>(null);
   const lenis = useLenis();
-  
-  const selected = languages.find(lang => lang.code === language) || languages[0];
+
+  const selected =
+    languages.find((lang) => lang.code === language) || languages[0];
 
   const scrollToSection = (id: string) => {
     if (!lenis) return;
@@ -82,10 +83,10 @@ export default function Header() {
     <header ref={headerRef} className={styles["header"]}>
       <div className={styles["header-navigator"]}>
         <Image
-          src="/images/no-bg.png"
+          src="/images/no-bgnew.png"
           alt="geo-wrap-logo"
           width={235}
-          height={55}
+          height={45}
           onClick={() => scrollToSection("hero")}
           style={{ cursor: "pointer" }}
           priority

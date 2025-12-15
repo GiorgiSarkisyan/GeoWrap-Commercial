@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 import en from "../locales/en.json";
 import ru from "../locales/ru.json";
 
@@ -12,29 +12,28 @@ interface LanguageContextType {
   t: Translations;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 const translations: Record<Language, Translations> = {
   en,
   ru,
 };
 
-const getInitialLanguage = (): Language => {
-  if (typeof window === "undefined") return "en";
-  const savedLanguage = localStorage.getItem("language");
-  return (savedLanguage === "en" || savedLanguage === "ru") ? savedLanguage : "en";
-};
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem("language", lang);
-  };
+export function LanguageProvider({
+  children,
+  initialLanguage = "en",
+}: {
+  children: ReactNode;
+  initialLanguage?: Language;
+}) {
+  const [language, setLanguage] = useState<Language>(initialLanguage);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t: translations[language] }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage, t: translations[language] }}
+    >
       {children}
     </LanguageContext.Provider>
   );
