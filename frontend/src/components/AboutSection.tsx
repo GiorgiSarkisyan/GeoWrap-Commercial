@@ -156,7 +156,7 @@ export default function AboutSection() {
             </div>
             <div ref={aboutBoxesRef} className={styles["about-content-boxes"]}>
               <div className={styles["about-content-box"]}>
-                <h3 className={styles["about-content-box-subtitle"]}>5+</h3>
+                <h3 className={styles["about-content-box-subtitle"]}>6+</h3>
                 <span className={styles["about-content-box-span"]}>
                   {t.about.yearsExperience}
                 </span>

@@ -16,7 +16,7 @@
     "subtitleHighlight": "Eye-Catching Masterpieces",
     "description": "GeoWrap is a premium automotive customization and protection studio based in Tbilisi, Georgia, specializing in high-end vehicle wrapping and detailing services. With expert craftsmanship, premium materials, and a strong attention to detail, we deliver tailored solutions designed to enhance, protect, and elevate luxury and performance vehicles, ensuring flawless results and lasting value.",
     "yearsExperience": "Years Experience",
-    "clients": "Clients",
+    "clients": "Customers",
     "support": "Support",
     "badge": "Premium Vehicle"
   },
@@ -24,12 +24,12 @@
     "title": "Our Services",
     "items": [
       {
-        "name": "Premium Quality PPF",
+        "name": "Paint Protection Film",
         "description": "Ultimate paint protection with invisible precision.",
         "paragraph": "Our Premium Paint Protection Film (PPF) shields your vehicle's surface from scratches, rock chips, and environmental damage while maintaining its original shine. Installed with expert precision, it ensures your car stays flawless for years without altering its appearance."
       },
       {
-        "name": "Premium Vinyl Wraps",
+        "name": "Colored Wraps",
         "description": "Transform your vehicle's look with stunning custom wraps.",
         "paragraph": "Whether you want a bold color change or a sleek matte finish, our premium vinyl wraps deliver both style and protection. Each wrap is precisely applied for a smooth, durable finish that turns your car into a true statement on the road."
       },
