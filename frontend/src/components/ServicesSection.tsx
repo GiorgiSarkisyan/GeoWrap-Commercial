@@ -15,7 +15,7 @@ const serviceImages = [
   { id: 2, imageUrl: "/images/services/premium-vinyl-wraps.jpg" },
   { id: 3, imageUrl: "/images/services/interior-detailing.jpg" },
   { id: 4, imageUrl: "/images/services/ceramic-coating.jpg" },
-  { id: 5, imageUrl: "/images/services/wheel-powder-coating-paing.jpg" },
+  { id: 5, imageUrl: "/images/services/wheel-powder-coating-paint.jpg" },
   { id: 6, imageUrl: "/images/services/window-tint.jpg" },
   { id: 7, imageUrl: "/images/services/noise-vibration-insulation.jpg" },
   { id: 8, imageUrl: "/images/services/polishing.jpg" },

@@ -2,8 +2,9 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import en from "../locales/en.json";
 import ru from "../locales/ru.json";
+import ka from "../locales/ka.json";
 
-type Language = "en" | "ru";
+type Language = "en" | "ru" | "ka";
 type Translations = typeof en;
 
 interface LanguageContextType {
@@ -19,6 +20,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 const translations: Record<Language, Translations> = {
   en,
   ru,
+  ka,
 };
 
 export function LanguageProvider({
