@@ -9,6 +9,7 @@ import styles from "../styles/components/Header.module.scss";
 const languages = [
   { code: "en" as const, label: "English", flag: "/images/flags/en.png" },
   { code: "ru" as const, label: "Русский", flag: "/images/flags/ru.png" },
+  { code: "ka" as const, label: "ქართული", flag: "/images/flags/ka.png" },
 ];
 
 export default function Header() {

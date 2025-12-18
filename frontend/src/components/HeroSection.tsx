@@ -12,7 +12,6 @@ export default function HeroSection() {
   const lenis = useLenis();
   const { t, language } = useLanguage();
 
-  // Wait for hydration to complete
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -28,7 +27,7 @@ export default function HeroSection() {
 
     lenis.scrollTo(elementPosition, {
       duration: 1.2,
-      easing: ( t) =>
+      easing: (t) =>
         t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
     });
   };
@@ -36,7 +35,6 @@ export default function HeroSection() {
   useEffect(() => {
     if (!el.current || !mounted) return;
 
-    // Destroy existing instance if it exists
     if (typedInstance.current) {
       typedInstance.current.destroy();
       typedInstance.current = null;
@@ -74,7 +72,7 @@ export default function HeroSection() {
         playsInline
         className={styles["background-video"]}
         preload="auto"
-        style={{ contentVisibility: 'auto' }}
+        style={{ contentVisibility: "auto" }}
       >
         <source src="/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
