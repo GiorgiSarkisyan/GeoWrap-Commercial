@@ -128,6 +128,8 @@ export default function WorkshopSection() {
               <div
                 className={styles["workshop-card"]}
                 style={{ backgroundImage: `url(${item.imageUrl})` }}
+                role="img"
+                aria-label={`${item.title} - ${item.type}`}
               >
                 <div className={styles["workshop-card-content"]}>
                   <h3 className={styles["workshop-card-car-type"]}>

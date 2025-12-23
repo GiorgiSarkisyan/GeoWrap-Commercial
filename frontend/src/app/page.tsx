@@ -1,4 +1,3 @@
-"use client";
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
@@ -25,6 +24,7 @@ export default function Page() {
       "@type": "PostalAddress",
       streetAddress: "Parsadani street 9",
       addressLocality: "Tbilisi",
+      postalCode: "0131",
       addressCountry: "GE",
     },
     geo: {

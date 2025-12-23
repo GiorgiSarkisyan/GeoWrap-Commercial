@@ -126,10 +126,19 @@ export default function ServicesSection() {
                 key={service.id}
                 className={styles["service-card"]}
                 onClick={() => openModal(service)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    openModal(service);
+                  }
+                }}
               >
                 <div
                   className={styles["service-card-bg"]}
                   style={{ backgroundImage: `url(${service.imageUrl})` }}
+                  role="img"
+                  aria-label={service.name}
                 />
                 <div className={styles["service-card-icon"]}>
                   <BsEye />
@@ -167,6 +176,8 @@ export default function ServicesSection() {
               <div
                 className={styles["modal-image"]}
                 style={{ backgroundImage: `url(${selectedService.imageUrl})` }}
+                role="img"
+                aria-label={`${selectedService.name} - ${selectedService.description}`}
               />
 
               <div className={styles["modal-content-text"]}>
