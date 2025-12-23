@@ -1,0 +1,21 @@
+{
+  "name": "GeoWrap - Premium Car Wrapping Services",
+  "short_name": "GeoWrap",
+  "description": "Premium automotive customization and protection services in Tbilisi, Georgia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1919",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/images/no-bgnew.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/no-bgnew.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
