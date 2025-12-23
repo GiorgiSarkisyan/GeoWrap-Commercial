@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths if any
+# Disallow: /admin/
+
+# Sitemap
+Sitemap: https://geowrap.ge/sitemap.xml

@@ -67,25 +67,10 @@
       transform: scale(1.05);
     }
 
-    &.open {
-      background: #ff4757;
-      border-color: #ff4757;
-
-      &:hover {
-        background: #ee5a6f;
-        border-color: #ee5a6f;
-      }
-    }
-
     .messenger-icon {
       width: 32px;
       height: 32px;
       color: white;
-      transition: transform 0.3s ease;
-    }
-
-    &.open .messenger-icon {
-      transform: rotate(90deg);
     }
   }
 
