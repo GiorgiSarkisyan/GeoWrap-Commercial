@@ -176,7 +176,12 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-        <div ref={aboutImageRef} className={styles["about-content-image"]}>
+        <div
+          ref={aboutImageRef}
+          className={styles["about-content-image"]}
+          role="img"
+          aria-label="GeoWrap workshop and team"
+        >
           <div ref={aboutBadgeRef} className={styles["about-content-badge"]}>
             {t.about.badge}
           </div>

@@ -32,6 +32,15 @@ export const metadata: Metadata = {
   creator: "GeoWrap",
   publisher: "GeoWrap",
   manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/images/no-bgnew.png", sizes: "any" },
+      { url: "/images/no-bgnew.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/no-bgnew.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/images/no-bgnew.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/images/no-bgnew.png"],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -43,10 +52,10 @@ export const metadata: Metadata = {
       " automotive customization and protection services in Tbilisi, Georgia. Specializing in PPF, vinyl wraps, ceramic coating, and detailing.",
     images: [
       {
-        url: "/images/no-bgnew.png",
+        url: "/images/workshop/ferrari-296gtb.jpg",
         width: 1200,
         height: 630,
-        alt: "GeoWrap - Car Wrapping Services",
+        alt: "GeoWrap - Premium Car Wrapping & PPF Services - Ferrari 296 GTB",
       },
     ],
   },
@@ -55,7 +64,7 @@ export const metadata: Metadata = {
     title: "GeoWrap Tbilisi | Car Wrapping & PPF Services",
     description:
       "Premium automotive customization and protection services in Tbilisi, Georgia.",
-    images: ["/images/no-bgnew.png"],
+    images: ["/images/workshop/ferrari-296gtb.jpg"],
   },
   robots: {
     index: true,
