@@ -116,7 +116,12 @@
     "address": "Tbilisi, Parsadani street 9",
     "phone": "+995 593 10 31 13",
     "email": "geowraptbilisi@gmail.com",
-    "followText": "Follow our journey"
+    "followText": "Follow our journey",
+    "clickToInteract": "Click to view map"
+  },
+  "messenger": {
+    "chatText": "Chat with us on Messenger",
+    "greeting": "Hi! How can we help you today?"
   },
   "footer": {
     "tagline": "Premium automotive customization and protection services in Tbilisi, Georgia. Elevating your vehicle to perfection.",

@@ -1,0 +1,110 @@
+@use "../variables.module" as *;
+
+.messenger-chat {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .messenger-tooltip {
+    background: white;
+    color: #0084ff;
+    padding: 12px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    font-family: var(--font-montserrat);
+    font-size: 14px;
+    font-weight: 600;
+    animation: slideIn 0.3s ease, pulse 2s infinite 1s;
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .messenger-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #2c2a2a;
+    border: 1px solid #3a3838;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      background: #3a3838;
+      border-color: #0084ff;
+      box-shadow: 0 6px 25px rgba(0, 132, 255, 0.3);
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+
+    &.open {
+      background: #ff4757;
+      border-color: #ff4757;
+
+      &:hover {
+        background: #ee5a6f;
+        border-color: #ee5a6f;
+      }
+    }
+
+    .messenger-icon {
+      width: 32px;
+      height: 32px;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    &.open .messenger-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+
+    .messenger-button {
+      width: 55px;
+      height: 55px;
+
+      .messenger-icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .messenger-tooltip {
+      display: none;
+    }
+  }
+}

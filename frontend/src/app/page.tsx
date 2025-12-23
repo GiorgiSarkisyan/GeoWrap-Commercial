@@ -8,6 +8,7 @@ import WorkshopSection from "../components/WorkshopSection";
 import ContactSection from "../components/ContactSection";
 import ReviewsSection from "../components/ReviewsSection";
 import Footer from "../components/Footer";
+import MessengerChat from "../components/MessengerChat";
 
 export default function Page() {
   return (
@@ -20,6 +21,7 @@ export default function Page() {
       <ContactSection />
       <ReviewsSection />
       <Footer />
+      <MessengerChat />
     </LanguageProvider>
   );
 }

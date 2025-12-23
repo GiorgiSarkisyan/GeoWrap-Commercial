@@ -24,6 +24,37 @@
       position: relative;
       overflow: hidden;
       box-shadow: $box-shadow-default;
+      cursor: pointer;
+
+      &:hover {
+        .map-overlay {
+          opacity: 1;
+        }
+      }
+
+      .map-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .map-overlay-text {
+          font-family: var(--font-montserrat);
+          font-size: 18px;
+          font-weight: 600;
+          color: white;
+          background: rgba(0, 0, 0, 0.7);
+          padding: 15px 30px;
+          border-radius: 5px;
+          pointer-events: none;
+        }
+      }
     }
 
     .contact-content-informational {
@@ -171,5 +202,87 @@
     height: 100%;
     border: 0;
     display: block;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  // Map Modal
+  .map-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .map-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10000;
+
+      svg {
+        width: 28px;
+        height: 28px;
+        color: black;
+      }
+
+      &:hover {
+        transform: rotate(90deg);
+        background: #f0f0f0;
+      }
+    }
+
+    .map-modal-content {
+      width: 100%;
+      max-width: 1200px;
+      height: 80vh;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+      animation: scaleIn 0.3s ease;
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    }
+
+    .map-modal-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
   }
 }
