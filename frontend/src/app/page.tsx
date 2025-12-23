@@ -6,6 +6,9 @@ import AboutSection from "../components/AboutSection";
 import ServicesSection from "../components/ServicesSection";
 import WorkshopSection from "../components/WorkshopSection";
 import ContactSection from "../components/ContactSection";
+import ReviewsSection from "../components/ReviewsSection";
+import Footer from "../components/Footer";
+import MessengerChat from "../components/MessengerChat";
 
 export default function Page() {
   return (
@@ -16,6 +19,9 @@ export default function Page() {
       <ServicesSection />
       <WorkshopSection />
       <ContactSection />
+      <ReviewsSection />
+      <Footer />
+      <MessengerChat />
     </LanguageProvider>
   );
 }
