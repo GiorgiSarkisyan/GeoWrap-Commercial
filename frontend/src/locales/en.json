@@ -79,6 +79,35 @@
     "title": "Workshop",
     "subtitle": "Check out our most impressive works"
   },
+  "reviews": {
+    "title": "Client Reviews",
+    "heading": "What Our",
+    "headingHighlight": "Customers Say",
+    "basedOn": "Based on Google reviews",
+    "viewAll": "View All Reviews on Google",
+    "items": [
+      {
+        "name": "Petre Isakadze",
+        "time": "7 months ago",
+        "text": "This guys delivered a flawless vehicle wrap experience! Their team combined premium materials, meticulous installation, and excellent design expertise to bring my W211 G 63 to life. Also Transparent communication, on-time completion, and a customer-first approach made the process stress-free. My ride now looks stunning and turns heads everywhere exactly what I hoped for! Highly recommend for anyone seeking quality, professionalism, and artistry!"
+      },
+      {
+        "name": "Mari Arutiniani",
+        "time": "7 months ago",
+        "text": "The service is top-notch! This is a company where I don't worry about leaving my car. The staff is always friendly, and everything is top-notch. The atmosphere, the location, and, most importantly, the professional wrappers who make my car look like a doll :) Thank you for everything!"
+      },
+      {
+        "name": "George Machitidze",
+        "time": "7 months ago",
+        "text": "My car has never looked more sleek! Communicative staff, complete trust and transparency, exceptional product. Highly recommended."
+      },
+      {
+        "name": "Levan Devsurashvili",
+        "time": "3 months ago",
+        "text": "Very good service, which is unfortunately rare in Georgia. The quality is definitely worth the price. The environment is also very friendly and good. Good luck to the GeoWrap team."
+      }
+    ]
+  },
   "contact": {
     "title": "Contact Us",
     "heading": "Ready To",
@@ -88,6 +117,19 @@
     "phone": "+995 593 10 31 13",
     "email": "geowraptbilisi@gmail.com",
     "followText": "Follow our journey"
+  },
+  "footer": {
+    "tagline": "Premium automotive customization and protection services in Tbilisi, Georgia. Elevating your vehicle to perfection.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contactInfo": "Contact Info",
+    "rights": "All rights reserved.",
+    "servicesList": {
+      "ppf": "Paint Protection Film",
+      "vinylWrap": "Vinyl Wraps",
+      "ceramic": "Ceramic Coating",
+      "detailing": "Detailing Services"
+    }
   },
   "typed": [
     "masterpiece",
