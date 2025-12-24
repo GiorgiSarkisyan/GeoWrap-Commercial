@@ -13,6 +13,7 @@ const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 const exo2 = Exo_2({ subsets: ["latin"], variable: "--font-exo2" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://geowrap.ge"),
   title: "GeoWrap Tbilisi | Car Wrapping & PPF Services in Georgia",
   description:
     "GeoWrap is Georgia's automotive customization studio specializing in paint protection film (PPF), vinyl wraps, ceramic coating, and premium detailing services in Tbilisi.",
@@ -27,18 +28,32 @@ export const metadata: Metadata = {
     "GeoWrap",
     "auto detailing Georgia",
     "window tint Tbilisi",
+    "geo wrap",
+    "ჯეო ვრაპი",
+    "джео врап",
+    "ჯეოვრაპი",
   ],
   authors: [{ name: "GeoWrap" }],
   creator: "GeoWrap",
   publisher: "GeoWrap",
   manifest: "/manifest.json",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "ka-GE": "/",
+      "ru-RU": "/",
+    },
+  },
   icons: {
     icon: [
       { url: "/images/no-bgnew.png", sizes: "any" },
       { url: "/images/no-bgnew.png", sizes: "32x32", type: "image/png" },
       { url: "/images/no-bgnew.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: "/images/no-bgnew.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: "/images/no-bgnew.png", sizes: "180x180", type: "image/png" },
+    ],
     shortcut: ["/images/no-bgnew.png"],
   },
   openGraph: {
@@ -78,8 +93,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add Google Search Console verification here when ready
-    // google: "your-verification-code",
+    google: "your-google-search-console-verification-code-here",
+    // yandex: "your-yandex-verification-code", // Optional for Russian market
   },
 };
 
@@ -89,7 +104,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
         className={`${montserrat.variable} ${oswald.variable} ${exo2.variable}`}
       >

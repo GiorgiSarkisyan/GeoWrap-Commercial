@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
+import { HiMenu, HiX } from "react-icons/hi";
 import { useLenis } from "lenis/react";
 import { useLanguage } from "../contexts/LanguageContext";
 import styles from "../styles/components/Header.module.scss";
@@ -14,6 +15,7 @@ const languages = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const headerRef = useRef<HTMLElement | null>(null);
   const lenis = useLenis();
@@ -35,6 +37,8 @@ export default function Header() {
       easing: (t) =>
         t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
     });
+
+    setMobileMenuOpen(false);
   };
 
   const handleSelect = (lang: (typeof languages)[0]) => {
@@ -91,6 +95,7 @@ export default function Header() {
           onClick={() => scrollToSection("hero")}
           style={{ cursor: "pointer" }}
           priority
+          className={styles["logo"]}
         />
         <nav className={styles["nav-wrapper"]}>
           <ul className={styles["list"]}>
@@ -121,6 +126,49 @@ export default function Header() {
           </ul>
         </nav>
       </div>
+
+      {/* Hamburger Menu Button */}
+      <button
+        className={styles["hamburger"]}
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <HiX /> : <HiMenu />}
+      </button>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className={styles["mobile-menu"]}>
+          <nav className={styles["mobile-nav"]}>
+            <ul className={styles["mobile-list"]}>
+              <li
+                className={styles["mobile-list-item"]}
+                onClick={() => scrollToSection("about")}
+              >
+                {t.nav.aboutUs}
+              </li>
+              <li
+                className={styles["mobile-list-item"]}
+                onClick={() => scrollToSection("services")}
+              >
+                {t.nav.services}
+              </li>
+              <li
+                className={styles["mobile-list-item"]}
+                onClick={() => scrollToSection("workshop")}
+              >
+                {t.nav.workshop}
+              </li>
+              <li
+                className={styles["mobile-list-item"]}
+                onClick={() => scrollToSection("contact")}
+              >
+                {t.nav.contact}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      )}
 
       <div
         className={styles["language-selector"]}

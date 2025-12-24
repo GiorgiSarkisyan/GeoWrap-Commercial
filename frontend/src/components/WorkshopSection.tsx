@@ -90,7 +90,7 @@ const workshop = [
 
 export default function WorkshopSection() {
   const { t } = useLanguage();
-  
+
   return (
     <section id="workshop" className={styles["workshop-section"]}>
       <div className={styles["workshop-header"]}>
@@ -121,10 +121,7 @@ export default function WorkshopSection() {
           pagination={{ el: ".custom-pagination" }}
         >
           {workshop.map((item) => (
-            <SwiperSlide
-              key={item.id}
-              style={{ width: "500px", height: "600px" }}
-            >
+            <SwiperSlide key={item.id} className={styles["workshop-slide"]}>
               <div
                 className={styles["workshop-card"]}
                 style={{ backgroundImage: `url(${item.imageUrl})` }}

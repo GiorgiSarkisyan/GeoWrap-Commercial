@@ -1,18 +1,34 @@
 @use "../variables.module" as *;
 
 .workshop-section {
-  height: 92dvh;
+  height: auto;
+  min-height: 92dvh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow: visible;
   flex-direction: column;
+  padding: 60px 0 80px;
+
+  @include mobile {
+    min-height: 100vh;
+    padding: 50px 0 60px;
+  }
+
+  @include tablet {
+    min-height: 90vh;
+    padding: 55px 0 70px;
+  }
 
   .workshop-header {
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 20px;
+
+    @include mobile {
+      margin-bottom: 15px;
+    }
 
     .workshop-section-title {
       font-family: var(--font-oswald);
@@ -23,6 +39,23 @@
       letter-spacing: 3px;
       position: relative;
 
+      @include mobile {
+        font-size: 24px;
+        letter-spacing: 2px;
+      }
+
+      @include tablet {
+        font-size: 28px;
+      }
+
+      @include desktop {
+        font-size: 32px;
+      }
+
+      @include large-desktop {
+        font-size: 36px;
+      }
+
       &::after {
         content: "";
         display: block;
@@ -30,6 +63,14 @@
         height: 2px;
         background-color: white;
         margin: 4px auto 0;
+
+        @include mobile {
+          width: 120px;
+        }
+
+        @include tablet {
+          width: 150px;
+        }
       }
     }
 
@@ -38,6 +79,11 @@
       color: #7d7d7d;
       text-align: center;
       font-size: 16px;
+
+      @include mobile {
+        font-size: 14px;
+        padding: 0 20px;
+      }
     }
   }
 
@@ -46,27 +92,66 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 40px;
+    align-items: center;
+    margin-top: 20px;
     position: relative;
+    flex: 1;
+
+    @include mobile {
+      margin-top: 15px;
+    }
+
+    .workshop-slide {
+      width: 500px;
+      height: 600px;
+
+      @include mobile {
+        width: 360px;
+        height: 450px;
+      }
+
+      @include tablet {
+        width: 400px;
+        height: 500px;
+      }
+    }
 
     :global(.custom-pagination) {
       position: absolute;
-      bottom: 50px;
+      bottom: -25px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       justify-content: center;
       gap: 8px;
       z-index: 1;
+
+      @include mobile {
+        bottom: -22px;
+        gap: 6px;
+      }
+
+      @include tablet {
+        bottom: -24px;
+      }
     }
 
     :global(.custom-pagination .swiper-pagination-bullet) {
       width: 8px;
       height: 8px;
-      background-color: black;
+      background-color: rgba(255, 255, 255, 0.5);
       border-radius: 50%;
       transition: all 0.3s;
+      cursor: pointer;
+
+      @include mobile {
+        width: 6px;
+        height: 6px;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
     }
 
     :global(.custom-pagination .swiper-pagination-bullet-active) {
@@ -74,6 +159,17 @@
       height: 8px;
       border-radius: 4px;
       background-color: white;
+
+      @include mobile {
+        width: 20px;
+        height: 6px;
+        border-radius: 3px;
+      }
+
+      @include tablet {
+        width: 28px;
+        height: 7px;
+      }
     }
 
     :global(.swiper-slide:not(.swiper-slide-active)) {
@@ -101,6 +197,16 @@
       border: 2px solid white;
       box-shadow: $box-shadow-default;
 
+      @include mobile {
+        width: 360px;
+        height: 450px;
+      }
+
+      @include tablet {
+        width: 400px;
+        height: 500px;
+      }
+
       .workshop-card-content {
         width: 100%;
         height: 100%;
@@ -110,6 +216,10 @@
         justify-content: flex-end;
         padding: 1.5rem;
         color: #fff;
+
+        @include mobile {
+          padding: 1rem;
+        }
 
         &::before {
           content: "";
@@ -139,12 +249,44 @@
           font-family: var(--font-montserrat);
           font-weight: 600;
           color: #7d7d7d;
+
+          @include mobile {
+            font-size: 0.65rem;
+          }
+
+          @include tablet {
+            font-size: 0.75rem;
+          }
+
+          @include desktop {
+            font-size: 0.8rem;
+          }
+
+          @include large-desktop {
+            font-size: 0.9rem;
+          }
         }
 
         .workshop-card-car-title {
           font-size: 1.5rem;
           font-weight: 500;
           font-family: var(--font-oswald);
+
+          @include mobile {
+            font-size: 1.1rem;
+          }
+
+          @include tablet {
+            font-size: 1.25rem;
+          }
+
+          @include desktop {
+            font-size: 1.35rem;
+          }
+
+          @include large-desktop {
+            font-size: 1.5rem;
+          }
         }
       }
     }

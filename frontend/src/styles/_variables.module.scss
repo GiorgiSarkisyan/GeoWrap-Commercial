@@ -60,3 +60,42 @@ $border-radius15: 30px;
 $box-shadow-default: 0 0 30px 20px rgba(0, 0, 0, 0.04);
 $box-shadow-blue: 0 4px 5px 0 rgba(6, 74, 137, 0.05);
 $box-shadow-light: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Responsive Mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-sm) and (max-width: #{$breakpoint-lg - 1}) {
+    @content;
+  }
+}
+
+@mixin mobile-tablet {
+  @media (max-width: #{$breakpoint-lg - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}

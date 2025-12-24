@@ -3,11 +3,18 @@ import { ReactNode, useEffect } from "react";
 import ReactLenis, { useLenis } from "lenis/react";
 import Loading from "./loading";
 import { useLoading } from "../contexts/LoadingContext";
+import { useLanguage } from "../contexts/LanguageContext";
 import { preloadAllAssets } from "../utils/preloadAssets";
 
 export default function PageWrapper({ children }: { children: ReactNode }) {
   const { isLoading, fadeOut, setFadeOut, setIsLoading } = useLoading();
+  const { language } = useLanguage();
   const lenis = useLenis();
+
+  // Update HTML lang attribute based on language
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   useEffect(() => {
     preloadAllAssets().then(() => {
