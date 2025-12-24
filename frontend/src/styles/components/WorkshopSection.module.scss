@@ -11,12 +11,12 @@
   padding: 60px 0 80px;
 
   @include mobile {
-    min-height: 100vh;
+    min-height: 80dvh;
     padding: 50px 0 60px;
   }
 
   @include tablet {
-    min-height: 90vh;
+    min-height: 80dvh;
     padding: 55px 0 70px;
   }
 

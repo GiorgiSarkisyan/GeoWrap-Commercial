@@ -16,8 +16,10 @@ const languages = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [bgOpacity, setBgOpacity] = useState(0);
   const { language, setLanguage, t } = useLanguage();
   const headerRef = useRef<HTMLElement | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const lenis = useLenis();
 
   const selected =
@@ -67,7 +69,15 @@ export default function Header() {
         const scrollY = window.scrollY || window.pageYOffset;
         const limit = Math.max(heroHeight * 0.6, 1);
         const ratio = Math.min(Math.max(scrollY / limit, 0), 1);
-        header.style.backgroundColor = `rgba(33, 32, 32, ${ratio})`;
+        const bgColor = `rgba(33, 32, 32, ${ratio})`;
+
+        header.style.backgroundColor = bgColor;
+        setBgOpacity(ratio);
+
+        if (mobileMenuRef.current) {
+          mobileMenuRef.current.style.backgroundColor = bgColor;
+        }
+
         ticking = false;
       });
     };
@@ -138,7 +148,13 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className={styles["mobile-menu"]}>
+        <div
+          ref={mobileMenuRef}
+          className={styles["mobile-menu"]}
+          style={{
+            backgroundColor: `rgba(33, 32, 32, ${bgOpacity})`,
+          }}
+        >
           <nav className={styles["mobile-nav"]}>
             <ul className={styles["mobile-list"]}>
               <li
@@ -166,6 +182,53 @@ export default function Header() {
                 {t.nav.contact}
               </li>
             </ul>
+            {/* Language Selector in Mobile Menu */}
+            <div className={styles["mobile-language-section"]}>
+              <div
+                className={styles["mobile-language-selector"]}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(!open);
+                }}
+              >
+                <div className={styles["selected"]}>
+                  <div className={styles["flag-wrapper"]}>
+                    <Image
+                      src={selected.flag}
+                      alt={selected.label}
+                      width={20}
+                      height={20}
+                    />
+                  </div>
+                  <span>{selected.label}</span>
+                  <FaChevronDown className={styles["arrow"]} />
+                </div>
+                {open && (
+                  <ul className={styles["dropdown"]}>
+                    {languages.map((lang) => (
+                      <li
+                        key={lang.code}
+                        className={styles["dropdown-item"]}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSelect(lang);
+                        }}
+                      >
+                        <div className={styles["flag-wrapper"]}>
+                          <Image
+                            src={lang.flag}
+                            alt={lang.label}
+                            width={20}
+                            height={20}
+                          />
+                        </div>
+                        <span>{lang.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
           </nav>
         </div>
       )}

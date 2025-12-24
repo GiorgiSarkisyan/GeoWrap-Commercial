@@ -68,6 +68,8 @@ export default function ServicesSection() {
     )
       return;
 
+    const isMobile = window.innerWidth < 640;
+
     // Set initial states for cards only (title will remain static)
     gsap.set(serviceCardsRef.current.children, {
       opacity: 0,
@@ -76,34 +78,60 @@ export default function ServicesSection() {
       rotationX: 15,
     });
 
-    // Create timeline with ScrollTrigger that only runs once (on first downward scroll)
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: serviceSectionRef.current,
-        start: "top 70%",
-        // don't reverse; play once and remove the trigger
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
+    if (isMobile) {
+      // Mobile: Animate each card individually as it enters viewport
+      const cards = Array.from(serviceCardsRef.current.children);
+      const triggers: ScrollTrigger[] = [];
 
-    // Animate service cards with stagger (title is not animated)
-    tl.to(serviceCardsRef.current.children, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      rotationX: 0,
-      duration: 0.8,
-      stagger: {
-        each: 0.1,
-        from: "start",
-      },
-      ease: "power3.out",
-    });
+      cards.forEach((card) => {
+        const trigger = gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotationX: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        });
+        triggers.push(trigger.scrollTrigger as ScrollTrigger);
+      });
 
-    return () => {
-      tl.kill();
-    };
+      return () => {
+        triggers.forEach((trigger) => trigger?.kill());
+      };
+    } else {
+      // Desktop: Animate all cards together with stagger
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: serviceSectionRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      });
+
+      tl.to(serviceCardsRef.current.children, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        duration: 0.8,
+        stagger: {
+          each: 0.1,
+          from: "start",
+        },
+        ease: "power3.out",
+      });
+
+      return () => {
+        tl.kill();
+      };
+    }
   }, []);
 
   return (
