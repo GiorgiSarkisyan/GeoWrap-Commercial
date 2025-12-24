@@ -70,7 +70,7 @@
 
     .workshop-section-second-title {
       font-family: var(--font-montserrat);
-      color: #7d7d7d;
+      color: $color-text-muted;
       text-align: center;
       font-size: 16px;
 
@@ -135,7 +135,7 @@
       height: 8px;
       background-color: rgba(255, 255, 255, 0.5);
       border-radius: 50%;
-      transition: all 0.3s;
+      transition: all $transition-default;
       cursor: pointer;
 
       @include mobile {
@@ -170,7 +170,7 @@
 
     :global(.swiper-slide:not(.swiper-slide-active)) {
       filter: blur(1px) brightness(0.9);
-      transition: filter 0.5s ease, transform 0.5s ease;
+      transition: filter $transition-slow, transform $transition-slow;
       transform-origin: center center;
       pointer-events: none;
     }
@@ -178,7 +178,7 @@
     :global(.swiper-slide-active) {
       filter: none !important;
       pointer-events: auto;
-      transition: filter 0.5s ease, transform 0.5s ease;
+      transition: filter $transition-slow, transform $transition-slow;
     }
 
     .workshop-card {
@@ -186,7 +186,7 @@
       height: 600px;
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform $transition-default, box-shadow $transition-default;
       user-select: none;
       background-size: cover;
       background-position: center 90%;
@@ -244,7 +244,7 @@
           margin-bottom: 0.5rem;
           font-family: var(--font-montserrat);
           font-weight: 600;
-          color: #7d7d7d;
+          color: $color-text-muted;
 
           @include mobile {
             font-size: 0.65rem;

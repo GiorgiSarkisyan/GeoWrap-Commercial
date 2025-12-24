@@ -64,7 +64,6 @@ export default function AboutSection() {
       },
     });
 
-    // Animate title
     tl.to(aboutTitleRef.current, {
       opacity: 1,
       y: 0,
@@ -72,7 +71,6 @@ export default function AboutSection() {
       ease: "power3.out",
     });
 
-    // Animate secondary title
     tl.to(
       aboutSecondaryRef.current,
       {
@@ -84,7 +82,6 @@ export default function AboutSection() {
       "-=0.5"
     );
 
-    // Animate description
     tl.to(
       aboutDescriptionRef.current,
       {
@@ -96,7 +93,6 @@ export default function AboutSection() {
       "-=0.5"
     );
 
-    // Animate boxes with stagger
     tl.to(
       aboutBoxesRef.current.children,
       {
@@ -110,7 +106,6 @@ export default function AboutSection() {
       "-=0.4"
     );
 
-    // Animate badge with bounce
     tl.to(
       aboutBadgeRef.current,
       {

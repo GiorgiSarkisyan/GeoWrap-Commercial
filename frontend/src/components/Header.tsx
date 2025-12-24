@@ -168,7 +168,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Hamburger Menu Button */}
       <button
         className={styles["hamburger"]}
         onClick={() => {
@@ -183,7 +182,6 @@ export default function Header() {
         {mobileMenuOpen ? <HiX /> : <HiMenu />}
       </button>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
           ref={mobileMenuRef}

@@ -32,7 +32,6 @@ export default function ReviewsSection() {
     )
       return;
 
-    // Set initial states
     gsap.set(googleRatingRef.current, {
       opacity: 0,
       y: -30,
@@ -48,7 +47,6 @@ export default function ReviewsSection() {
       y: 20,
     });
 
-    // Create timeline with ScrollTrigger
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -58,7 +56,6 @@ export default function ReviewsSection() {
       },
     });
 
-    // Animate Google rating
     tl.to(googleRatingRef.current, {
       opacity: 1,
       y: 0,
@@ -66,7 +63,6 @@ export default function ReviewsSection() {
       ease: "power3.out",
     });
 
-    // Animate carousel
     tl.to(
       carouselRef.current,
       {
@@ -78,7 +74,6 @@ export default function ReviewsSection() {
       "-=0.3"
     );
 
-    // Animate button
     tl.to(
       buttonRef.current,
       {

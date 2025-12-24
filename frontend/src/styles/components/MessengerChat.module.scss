@@ -16,7 +16,7 @@
 
   .messenger-tooltip {
     background: white;
-    color: #0084ff;
+    color: $color-messenger-blue;
     padding: 12px 20px;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -24,7 +24,7 @@
     font-family: var(--font-montserrat);
     font-size: 14px;
     font-weight: 600;
-    animation: slideIn 0.3s ease, pulse 2s infinite 1s;
+    animation: slideIn $transition-default, pulse 2s infinite 1s;
 
     @include mobile {
       display: none;
@@ -56,14 +56,14 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #2c2a2a;
-    border: 1px solid #3a3838;
+    background: $color-secondary-bg;
+    border: 1px solid $color-tertiary-bg;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: all $transition-default;
 
     @include mobile {
       width: 55px;
@@ -73,8 +73,8 @@
     @media (hover: hover) {
       &:hover {
         transform: scale(1.1);
-        background: #3a3838;
-        border-color: #0084ff;
+        background: $color-tertiary-bg;
+        border-color: $color-messenger-blue;
         box-shadow: 0 6px 25px rgba(0, 132, 255, 0.3);
       }
     }

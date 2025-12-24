@@ -48,7 +48,6 @@ export default function ContactSection() {
 
     const section = contactSectionRef.current;
 
-    // Set initial states
     gsap.set(titlesRef.current.children, {
       opacity: 0,
       y: 50,
@@ -64,7 +63,6 @@ export default function ContactSection() {
       y: 30,
     });
 
-    // Create timeline with ScrollTrigger
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -74,7 +72,6 @@ export default function ContactSection() {
       },
     });
 
-    // Animate titles
     tl.to(titlesRef.current.children, {
       opacity: 1,
       y: 0,
@@ -83,7 +80,6 @@ export default function ContactSection() {
       ease: "power3.out",
     });
 
-    // Animate contact items
     tl.to(
       contactsRef.current.children,
       {
@@ -96,7 +92,6 @@ export default function ContactSection() {
       "-=0.4"
     );
 
-    // Animate socials
     tl.to(
       socialsRef.current,
       {
@@ -223,7 +218,6 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* Map Modal */}
       {isMapModalOpen && (
         <div
           className={`${styles["map-modal"]} ${

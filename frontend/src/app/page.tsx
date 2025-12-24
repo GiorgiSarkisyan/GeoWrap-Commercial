@@ -10,7 +10,6 @@ import MessengerChat from "../components/MessengerChat";
 import Script from "next/script";
 
 export default function Page() {
-  // Structured Data for Local Business
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
@@ -34,7 +33,14 @@ export default function Page() {
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "10:00",
       closes: "19:00",
     },
@@ -60,7 +66,6 @@ export default function Page() {
     },
   };
 
-  // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -74,7 +79,6 @@ export default function Page() {
     ],
   };
 
-  // Organization Schema
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -96,21 +100,20 @@ export default function Page() {
 
   return (
     <>
-      {/* Local Business Structured Data */}
       <Script
         id="local-business-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
 
-      {/* Breadcrumb Structured Data */}
       <Script
         id="breadcrumb-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Organization Structured Data */}
       <Script
         id="organization-schema"
         type="application/ld+json"

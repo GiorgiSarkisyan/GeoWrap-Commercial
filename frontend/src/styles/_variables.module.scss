@@ -61,6 +61,33 @@ $box-shadow-default: 0 0 30px 20px rgba(0, 0, 0, 0.04);
 $box-shadow-blue: 0 4px 5px 0 rgba(6, 74, 137, 0.05);
 $box-shadow-light: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
 
+$color-primary-bg: #212020;
+$color-secondary-bg: #2c2a2a;
+$color-tertiary-bg: #3a3838;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-text-primary: #ffffff;
+$color-text-secondary: #e0e0e0;
+$color-text-muted: #7d7d7d;
+$color-text-dark-muted: #9a9a9a;
+$color-border: rgba(255, 255, 255, 0.1);
+$color-border-light: rgba(255, 255, 255, 0.05);
+$color-gradient-purple-start: #667eea;
+$color-gradient-purple-end: #764ba2;
+$color-gradient-footer: #1a1919;
+$color-star-rating: #fbbf24;
+$color-gray-light: #b0b0b0;
+$color-gray: #808080;
+$color-gray-lightest: #f0f0f0;
+$color-messenger-blue: #0084ff;
+
+$transition-default: 0.3s ease;
+$transition-fast: 0.15s ease;
+$transition-slow: 0.5s ease;
+$transition-base: 0.3s;
+$transition-quick: 0.15s;
+$transition-background: 0.2s;
+
 // Breakpoints
 $breakpoint-xs: 480px;
 $breakpoint-sm: 640px;

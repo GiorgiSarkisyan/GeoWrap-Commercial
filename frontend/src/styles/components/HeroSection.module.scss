@@ -148,7 +148,7 @@
       border: 2px solid white;
       border-radius: 0;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all $transition-default;
 
       @include mobile {
         font-size: 12px;

@@ -41,7 +41,7 @@
 }
 
 .service-section {
-  background-color: #212020;
+  background-color: $color-primary-bg;
   height: auto;
   min-height: 92dvh;
   padding: 40px 0;
@@ -178,7 +178,7 @@
         border: 2px solid transparent;
         cursor: pointer;
         user-select: none;
-        transition: border 0.15s;
+        transition: border $transition-quick;
 
         @include mobile {
           width: 100%;
@@ -197,7 +197,7 @@
           font-size: 20px;
           font-family: var(--font-oswald);
           font-weight: 300;
-          transition: font-size 0.3s ease;
+          transition: font-size $transition-default;
 
           @include mobile {
             font-size: 16px;
@@ -222,7 +222,7 @@
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          transition: transform 0.5s ease;
+          transition: transform $transition-slow;
           z-index: 0;
 
           &::after {
@@ -258,11 +258,11 @@
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   z-index: 998;
-  animation: backdropFadeIn 0.15s ease forwards;
+  animation: backdropFadeIn $transition-fast forwards;
   will-change: opacity;
 
   &.fade-out {
-    animation: backdropFadeOut 0.15s ease forwards;
+    animation: backdropFadeOut $transition-fast forwards;
   }
 }
 
@@ -271,14 +271,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #2c2a2a;
+  background: $color-secondary-bg;
   max-width: 800px;
   width: 90%;
   height: 700px;
-  border: 0.5px solid #3a3838;
+  border: 0.5px solid $color-tertiary-bg;
   z-index: 999;
   will-change: transform, opacity;
-  animation: modalFadeIn 0.15s ease forwards;
+  animation: modalFadeIn $transition-fast forwards;
 
   @include mobile {
     width: 95%;
@@ -294,7 +294,7 @@
   }
 
   &.fade-out {
-    animation: modalFadeOut 0.15s ease forwards;
+    animation: modalFadeOut $transition-fast forwards;
   }
 
   .modal-content {
@@ -350,10 +350,10 @@
       cursor: pointer;
       font-size: 20px;
       z-index: 1000;
-      transition: color 0.3s;
-      background-color: #2c2a2a;
+      transition: color $transition-base;
+      background-color: $color-secondary-bg;
       opacity: 80%;
-      transition: 0.15s;
+      transition: $transition-quick;
 
       @media (hover: hover) {
         &:hover {
@@ -404,7 +404,7 @@
           font-size: 20px;
           font-weight: 400;
           display: inline-block;
-          color: #b0b0b0;
+          color: $color-gray-light;
 
           @include mobile {
             font-size: 16px;
@@ -419,7 +419,7 @@
       .modal-paragraph {
         font-family: var(--font-montserrat);
         font-size: 16px;
-        color: #808080;
+        color: $color-gray;
 
         @include mobile {
           font-size: 14px;

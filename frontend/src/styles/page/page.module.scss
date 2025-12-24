@@ -56,7 +56,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #2c2a2a;
+    background-color: $color-secondary-bg;
     padding: 6px 12px;
     border-radius: 6px;
     color: white;
@@ -70,7 +70,7 @@
     position: absolute;
     top: 110%;
     right: 0;
-    background-color: #2c2a2a;
+    background-color: $color-secondary-bg;
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -84,10 +84,10 @@
       gap: 8px;
       padding: 8px 12px;
       color: white;
-      transition: background 0.2s;
+      transition: background $transition-background;
 
       &:hover {
-        background-color: #3a3838;
+        background-color: $color-tertiary-bg;
       }
     }
   }
@@ -145,7 +145,7 @@
         width: 0;
         height: 2px;
         background-color: white;
-        transition: width 0.3s ease;
+        transition: width $transition-default;
       }
 
       &:hover::after {
@@ -265,7 +265,7 @@
       border: 2px solid white;
       border-radius: 0;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all $transition-default;
 
       &:hover {
         background-color: transparent;
@@ -316,7 +316,7 @@
 // about-us section
 .about-section {
   height: 90dvh;
-  background-color: #2c2a2a;
+  background-color: $color-secondary-bg;
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -326,7 +326,7 @@
 
   .about-content {
     display: flex;
-    background-color: #212020;
+    background-color: $color-primary-bg;
     gap: 20px;
     padding: 30px;
     height: 680px;
@@ -347,12 +347,12 @@
 
       .about-content-text {
         padding-bottom: 18px;
-        border-bottom: 1px solid #2c2a2a;
+        border-bottom: 1px solid $color-secondary-bg;
 
         .about-content-title {
           font-family: var(--font-oswald);
           font-size: 14px;
-          color: #7d7d7d;
+          color: $color-text-muted;
           text-transform: uppercase;
           letter-spacing: 3px;
           position: relative;
@@ -363,7 +363,7 @@
             display: block;
             width: 78px;
             height: 2px;
-            background-color: #7d7d7d;
+            background-color: $color-text-muted;
             margin-top: 4px;
           }
         }
@@ -375,7 +375,7 @@
           margin-bottom: 20px;
 
           span {
-            color: #7d7d7d;
+            color: $color-text-muted;
           }
         }
         .about-content-description {
@@ -398,7 +398,7 @@
         position: absolute;
         top: 20px;
         right: 20px;
-        background: #212020;
+        background: $color-primary-bg;
         color: white;
         padding: 10px 20px;
         font-family: var(--font-oswald);
@@ -406,7 +406,7 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         opacity: 80%;
-        transition: 0.3s;
+        transition: $transition-base;
 
         &:hover {
           color: black;
@@ -422,7 +422,7 @@
       .about-content-box-subtitle {
         font-size: 45px;
         font-family: var(--font-oswald);
-        color: #7d7d7d;
+        color: $color-text-muted;
       }
 
       .about-content-box-span {
@@ -434,7 +434,7 @@
 
 // Services Section
 .service-section {
-  background-color: #212020;
+  background-color: $color-primary-bg;
   height: 90dvh;
 
   .service-content {
@@ -482,7 +482,7 @@
         border: 2px solid transparent;
         cursor: pointer;
         user-select: none;
-        transition: border 0.15s;
+        transition: border $transition-quick;
 
         h3 {
           position: relative;
@@ -490,7 +490,7 @@
           font-size: 20px;
           font-family: var(--font-oswald);
           font-weight: 300;
-          transition: font-size 0.3s ease;
+          transition: font-size $transition-default;
         }
 
         .service-card-bg {
@@ -499,7 +499,7 @@
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          transition: transform 0.5s ease;
+          transition: transform $transition-slow;
           z-index: 0;
 
           &::after {
@@ -523,7 +523,7 @@
           color: white;
           font-size: 25px;
           opacity: 0%;
-          transition: opacity 0.3s, transform 0.3s;
+          transition: opacity $transition-base, transform $transition-base;
           z-index: 2;
           pointer-events: none;
 
@@ -563,11 +563,11 @@
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   z-index: 998;
-  animation: backdropFadeIn 0.15s ease forwards;
+  animation: backdropFadeIn $transition-fast forwards;
   will-change: opacity;
 
   &.fade-out {
-    animation: backdropFadeOut 0.15s ease forwards;
+    animation: backdropFadeOut $transition-fast forwards;
   }
 }
 
@@ -576,17 +576,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #2c2a2a;
+  background: $color-secondary-bg;
   max-width: 800px;
   width: 90%;
   height: 700px;
-  border: 0.5px solid #3a3838;
+  border: 0.5px solid $color-tertiary-bg;
   z-index: 999;
   will-change: transform, opacity;
-  animation: modalFadeIn 0.15s ease forwards;
+  animation: modalFadeIn $transition-fast forwards;
 
   &.fade-out {
-    animation: modalFadeOut 0.15s ease forwards;
+    animation: modalFadeOut $transition-fast forwards;
   }
 
   .modal-content {
@@ -629,10 +629,10 @@
       cursor: pointer;
       font-size: 20px;
       z-index: 1000;
-      transition: color 0.3s;
-      background-color: #2c2a2a;
+      transition: color $transition-base;
+      background-color: $color-secondary-bg;
       opacity: 80%;
-      transition: 0.15s;
+      transition: $transition-quick;
 
       &:hover {
         opacity: 100%;
@@ -663,14 +663,14 @@
           font-size: 20px;
           font-weight: 400;
           display: inline-block;
-          color: #b0b0b0;
+          color: $color-gray-light;
         }
       }
 
       .modal-paragraph {
         font-family: var(--font-montserrat);
         font-size: 16px;
-        color: #808080;
+        color: $color-gray;
       }
     }
   }
@@ -711,7 +711,7 @@
 
     .workshop-section-second-title {
       font-family: var(--font-montserrat);
-      color: #7d7d7d;
+      color: $color-text-muted;
       text-align: center;
       font-size: 16px;
     }
@@ -742,7 +742,7 @@
       height: 8px;
       background-color: black;
       border-radius: 50%;
-      transition: all 0.3s;
+      transition: all $transition-default;
     }
 
     :global(.custom-pagination .swiper-pagination-bullet-active) {
@@ -754,7 +754,7 @@
 
     :global(.swiper-slide:not(.swiper-slide-active)) {
       filter: blur(1px) brightness(0.9);
-      transition: filter 0.5s ease, transform 0.5s ease;
+      transition: filter $transition-slow, transform $transition-slow;
       transform-origin: center center;
       pointer-events: none;
     }
@@ -762,7 +762,7 @@
     :global(.swiper-slide-active) {
       filter: none !important;
       pointer-events: auto;
-      transition: filter 0.5s ease, transform 0.5s ease;
+      transition: filter $transition-slow, transform $transition-slow;
     }
 
     .workshop-card {
@@ -770,7 +770,7 @@
       height: 600px;
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform $transition-default, box-shadow $transition-default;
       user-select: none;
       background-size: cover;
       background-position: center 90%;
@@ -814,7 +814,7 @@
           margin-bottom: 0.5rem;
           font-family: var(--font-montserrat);
           font-weight: 600;
-          color: #7d7d7d;
+          color: $color-text-muted;
         }
 
         .workshop-card-car-title {
@@ -829,14 +829,14 @@
 
 // contact section
 .contact-section {
-  background-color: #212020;
+  background-color: $color-primary-bg;
   height: 90dvh;
   padding: 100px 0px;
 
   .contact-content {
     max-width: 1450px;
     margin: 0 auto;
-    background: #2c2a2a;
+    background: $color-secondary-bg;
     height: 100%;
     padding: 30px;
     user-select: none;
@@ -870,7 +870,7 @@
         h3 {
           font-family: var(--font-oswald);
           font-size: 17px;
-          color: #7d7d7d;
+          color: $color-text-muted;
           text-transform: uppercase;
           letter-spacing: 3px;
           position: relative;
@@ -880,7 +880,7 @@
             display: block;
             width: 110px;
             height: 2px;
-            background-color: #7d7d7d;
+            background-color: $color-text-muted;
             margin-top: 4px;
           }
         }
@@ -891,7 +891,7 @@
           line-height: 1;
 
           span {
-            color: #7d7d7d;
+            color: $color-text-muted;
           }
         }
 
@@ -909,7 +909,7 @@
         flex-direction: column;
         gap: 25px;
         padding-bottom: 30px;
-        border-bottom: 1px solid #3a3838;
+        border-bottom: 1px solid $color-tertiary-bg;
 
         .contact-content-contact-item {
           display: flex;
@@ -924,9 +924,9 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background-color: #3a3838;
+            background-color: $color-tertiary-bg;
             border: 2px solid transparent;
-            transition: border 0.15s;
+            transition: border $transition-quick;
 
             &:hover {
               border-color: white;

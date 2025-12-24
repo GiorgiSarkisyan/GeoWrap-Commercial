@@ -70,7 +70,6 @@ export default function ServicesSection() {
 
     const isMobile = window.innerWidth < 640;
 
-    // Set initial states for cards only (title will remain static)
     gsap.set(serviceCardsRef.current.children, {
       opacity: 0,
       y: 80,
@@ -79,7 +78,6 @@ export default function ServicesSection() {
     });
 
     if (isMobile) {
-      // Mobile: Animate each card individually as it enters viewport
       const cards = Array.from(serviceCardsRef.current.children);
       const triggers: ScrollTrigger[] = [];
 
@@ -105,7 +103,6 @@ export default function ServicesSection() {
         triggers.forEach((trigger) => trigger?.kill());
       };
     } else {
-      // Desktop: Animate all cards together with stagger
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: serviceSectionRef.current,
@@ -176,7 +173,6 @@ export default function ServicesSection() {
       </section>
       {selectedService && (
         <>
-          {/* Backdrop */}
           <div
             className={`${styles["modal-backdrop"]} ${
               isClosing ? styles["fade-out"] : ""
