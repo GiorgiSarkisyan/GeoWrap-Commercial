@@ -130,11 +130,13 @@
           font-size: 20px;
         }
 
-        &:hover {
-          background: #ffffff;
-          color: #212020;
-          border-color: #ffffff;
-          transform: translateY(-3px);
+        @media (hover: hover) {
+          &:hover {
+            background: #ffffff;
+            color: #212020;
+            border-color: #ffffff;
+            transform: translateY(-3px);
+          }
         }
       }
     }

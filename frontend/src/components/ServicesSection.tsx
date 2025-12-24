@@ -157,7 +157,7 @@ export default function ServicesSection() {
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     openModal(service);
                   }
                 }}
@@ -168,9 +168,6 @@ export default function ServicesSection() {
                   role="img"
                   aria-label={service.name}
                 />
-                <div className={styles["service-card-icon"]}>
-                  <BsEye />
-                </div>
                 <h3>{service.name}</h3>
               </div>
             ))}

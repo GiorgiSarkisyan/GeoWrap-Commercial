@@ -16,6 +16,7 @@ const languages = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [bgOpacity, setBgOpacity] = useState(0);
   const { language, setLanguage, t } = useLanguage();
   const headerRef = useRef<HTMLElement | null>(null);
@@ -24,6 +25,14 @@ export default function Header() {
 
   const selected =
     languages.find((lang) => lang.code === language) || languages[0];
+
+  const closeMobileMenu = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      setMobileMenuOpen(false);
+    }, 300);
+  };
 
   const scrollToSection = (id: string) => {
     if (!lenis) return;
@@ -40,13 +49,35 @@ export default function Header() {
         t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
     });
 
-    setMobileMenuOpen(false);
+    closeMobileMenu();
   };
 
   const handleSelect = (lang: (typeof languages)[0]) => {
     setLanguage(lang.code);
     setOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileMenuOpen &&
+        mobileMenuRef.current &&
+        headerRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        closeMobileMenu();
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -140,7 +171,13 @@ export default function Header() {
       {/* Hamburger Menu Button */}
       <button
         className={styles["hamburger"]}
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        onClick={() => {
+          if (mobileMenuOpen) {
+            closeMobileMenu();
+          } else {
+            setMobileMenuOpen(true);
+          }
+        }}
         aria-label="Toggle menu"
       >
         {mobileMenuOpen ? <HiX /> : <HiMenu />}
@@ -150,7 +187,9 @@ export default function Header() {
       {mobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className={styles["mobile-menu"]}
+          className={`${styles["mobile-menu"]} ${
+            isClosing ? styles["closing"] : ""
+          }`}
           style={{
             backgroundColor: `rgba(33, 32, 32, ${bgOpacity})`,
           }}

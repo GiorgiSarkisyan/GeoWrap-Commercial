@@ -70,11 +70,13 @@
       height: 55px;
     }
 
-    &:hover {
-      transform: scale(1.1);
-      background: #3a3838;
-      border-color: #0084ff;
-      box-shadow: 0 6px 25px rgba(0, 132, 255, 0.3);
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+        background: #3a3838;
+        border-color: #0084ff;
+        box-shadow: 0 6px 25px rgba(0, 132, 255, 0.3);
+      }
     }
 
     &:active {

@@ -58,14 +58,16 @@
     }
 
     @include large-desktop {
+      margin: 0 40px;
+    }
+
+    @media (min-width: 1600px) {
       margin: 0 auto;
     }
 
     .contact-map {
-      flex: 1 1 0;
-      width: 50%;
+      flex: 1;
       background-color: gray;
-      height: 100%;
       position: relative;
       overflow: hidden;
       box-shadow: $box-shadow-default;
@@ -73,19 +75,21 @@
 
       @include mobile {
         width: 100%;
-        height: 300px;
-        min-height: 300px;
-      }
-
-      @include tablet {
-        width: 100%;
         height: 400px;
         min-height: 400px;
       }
 
-      &:hover {
-        .map-overlay {
-          opacity: 1;
+      @include tablet {
+        width: 100%;
+        height: 500px;
+        min-height: 500px;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          .map-overlay {
+            opacity: 1;
+          }
         }
       }
 
@@ -100,6 +104,10 @@
         z-index: 1;
         opacity: 0;
         transition: opacity 0.3s ease;
+
+        @include mobile-tablet {
+          opacity: 1;
+        }
 
         .map-overlay-text {
           font-family: var(--font-montserrat);
@@ -156,6 +164,12 @@
           text-transform: uppercase;
           letter-spacing: 3px;
           position: relative;
+          width: fit-content;
+
+          @include mobile-tablet {
+            margin-left: auto;
+            margin-right: auto;
+          }
 
           @include mobile {
             font-size: 14px;
@@ -165,14 +179,10 @@
           &::after {
             content: "";
             display: block;
-            width: 110px;
+            width: 100%;
             height: 2px;
             background-color: #7d7d7d;
             margin-top: 4px;
-
-            @include mobile {
-              width: 80px;
-            }
 
             @include mobile-tablet {
               margin-left: auto;
@@ -268,6 +278,22 @@
             gap: 12px;
           }
 
+          .contact-content-contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: inherit;
+            text-decoration: none;
+
+            @media (hover: hover) {
+              &:hover {
+                .contact-content-contact-label {
+                  border-color: white;
+                }
+              }
+            }
+          }
+
           .contact-content-contact-label {
             display: inline-flex;
             align-items: center;
@@ -283,10 +309,6 @@
               height: 45px;
             }
 
-            &:hover {
-              border-color: white;
-            }
-
             svg {
               width: 25px;
               height: 25px;
@@ -297,14 +319,6 @@
                 height: 22px;
               }
             }
-          }
-
-          .contact-content-contact-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: inherit;
-            text-decoration: none;
           }
 
           .contact-content-contact-text {
@@ -381,6 +395,9 @@
     display: block;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   // Map Modal
@@ -403,6 +420,19 @@
       to {
         opacity: 1;
       }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    &.closing {
+      animation: fadeOut 0.3s ease;
     }
 
     .map-modal-close {

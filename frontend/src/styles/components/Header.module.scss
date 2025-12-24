@@ -52,8 +52,10 @@
       color: white;
       transition: background 0.2s;
 
-      &:hover {
-        background-color: #3a3838;
+      @media (hover: hover) {
+        &:hover {
+          background-color: #3a3838;
+        }
       }
     }
   }
@@ -142,8 +144,10 @@
         transition: width 0.3s ease;
       }
 
-      &:hover::after {
-        width: 100%;
+      @media (hover: hover) {
+        &:hover::after {
+          width: 100%;
+        }
       }
 
       @include desktop {
@@ -209,6 +213,21 @@
       }
     }
 
+    @keyframes slideUp {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+
+    &.closing {
+      animation: slideUp 0.3s ease-out;
+    }
+
     .mobile-nav {
       .mobile-list {
         list-style: none;
@@ -227,9 +246,11 @@
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
           transition: background 0.3s ease, padding-left 0.3s ease;
 
-          &:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding-left: 24px;
+          @media (hover: hover) {
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.05);
+              padding-left: 24px;
+            }
           }
 
           &:last-child {
@@ -272,8 +293,10 @@
           justify-content: center;
           transition: background-color 0.3s ease;
 
-          &:hover {
-            background-color: #3a3838;
+          @media (hover: hover) {
+            &:hover {
+              background-color: #3a3838;
+            }
           }
 
           .arrow {
@@ -313,8 +336,10 @@
             color: white;
             transition: background 0.2s;
 
-            &:hover {
-              background-color: #3a3838;
+            @media (hover: hover) {
+              &:hover {
+                background-color: #3a3838;
+              }
             }
           }
         }

@@ -21,6 +21,7 @@ export default function ContactSection() {
   const contactsRef = useRef<HTMLDivElement | null>(null);
   const socialsRef = useRef<HTMLDivElement | null>(null);
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const [isMapClosing, setIsMapClosing] = useState(false);
 
   const openMapModal = () => {
     setIsMapModalOpen(true);
@@ -28,8 +29,12 @@ export default function ContactSection() {
   };
 
   const closeMapModal = () => {
-    setIsMapModalOpen(false);
-    lenis?.start();
+    setIsMapClosing(true);
+    setTimeout(() => {
+      setIsMapClosing(false);
+      setIsMapModalOpen(false);
+      lenis?.start();
+    }, 300);
   };
 
   useEffect(() => {
@@ -126,9 +131,7 @@ export default function ContactSection() {
               {t.contact.heading} <br />
               <span>{t.contact.headingHighlight}</span>
             </h2>
-            <p>
-              {t.contact.description}
-            </p>
+            <p>{t.contact.description}</p>
           </div>
           <div ref={contactsRef} className={styles["contact-content-contacts"]}>
             <div className={styles["contact-content-contact-item"]}>
@@ -203,10 +206,7 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
-        <div
-          className={styles["contact-map"]}
-          onClick={openMapModal}
-        >
+        <div className={styles["contact-map"]} onClick={openMapModal}>
           <div className={styles["map-overlay"]}>
             <span className={styles["map-overlay-text"]}>
               {t.contact.clickToInteract || "Click to view map"}
@@ -225,7 +225,12 @@ export default function ContactSection() {
 
       {/* Map Modal */}
       {isMapModalOpen && (
-        <div className={styles["map-modal"]} onClick={closeMapModal}>
+        <div
+          className={`${styles["map-modal"]} ${
+            isMapClosing ? styles["closing"] : ""
+          }`}
+          onClick={closeMapModal}
+        >
           <button
             className={styles["map-modal-close"]}
             onClick={closeMapModal}

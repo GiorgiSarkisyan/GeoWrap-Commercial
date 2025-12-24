@@ -180,10 +180,12 @@
         font-size: 15px;
       }
 
-      &:hover {
-        background-color: transparent;
-        color: white;
-        transform: scale(1.05);
+      @media (hover: hover) {
+        &:hover {
+          background-color: transparent;
+          color: white;
+          transform: scale(1.05);
+        }
       }
     }
   }
