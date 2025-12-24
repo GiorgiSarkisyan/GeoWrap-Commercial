@@ -9,11 +9,22 @@ export default function HeroSection() {
   const el = useRef<HTMLSpanElement | null>(null);
   const typedInstance = useRef<{ destroy: () => void } | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const lenis = useLenis();
   const { t, language } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1023);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -66,15 +77,17 @@ export default function HeroSection() {
   return (
     <section id="hero" className={styles["main-section"]}>
       <video
-        autoPlay
+        ref={videoRef}
+        autoPlay={!isMobile}
         muted
         loop
         playsInline
         className={styles["background-video"]}
-        preload="auto"
+        preload={isMobile ? "none" : "auto"}
+        poster="/images/video-poster.jpg"
         style={{ contentVisibility: "auto" }}
       >
-        <source src="/background.mp4" type="video/mp4" />
+        <source src="/compressed.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={styles["main-content"]}>

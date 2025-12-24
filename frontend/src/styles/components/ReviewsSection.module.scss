@@ -219,7 +219,11 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, $color-gradient-purple-start 0%, $color-gradient-purple-end 100%);
+            background: linear-gradient(
+              135deg,
+              $color-gradient-purple-start 0%,
+              $color-gradient-purple-end 100%
+            );
             display: flex;
             align-items: center;
             justify-content: center;
