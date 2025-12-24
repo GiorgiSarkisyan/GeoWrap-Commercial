@@ -2,19 +2,64 @@
 
 .contact-section {
   background-color: #212020;
-  height: 92dvh;
+  height: auto;
+  min-height: 92dvh;
   padding: 100px 0px;
+
+  @include mobile {
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+
+  @include tablet {
+    min-height: 90vh;
+    padding: 60px 0;
+  }
+
+  @include desktop {
+    padding: 80px 0;
+  }
+
+  @include large-desktop {
+    padding: 100px 0;
+  }
+
+  @media (min-width: 1600px) {
+    height: 92dvh;
+    min-height: auto;
+  }
 
   .contact-content {
     max-width: 1450px;
     margin: 0 auto;
     background: #2c2a2a;
-    height: 100%;
+    height: auto;
+    min-height: 100%;
     padding: 30px;
     user-select: none;
     border-radius: 5px;
     box-shadow: $box-shadow-light;
     display: flex;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      padding: 20px;
+      margin: 0 20px;
+    }
+
+    @include tablet {
+      flex-direction: column-reverse;
+      padding: 25px;
+      margin: 0 30px;
+    }
+
+    @include desktop {
+      margin: 0 40px;
+    }
+
+    @include large-desktop {
+      margin: 0 auto;
+    }
 
     .contact-map {
       flex: 1 1 0;
@@ -25,6 +70,18 @@
       overflow: hidden;
       box-shadow: $box-shadow-default;
       cursor: pointer;
+
+      @include mobile {
+        width: 100%;
+        height: 300px;
+        min-height: 300px;
+      }
+
+      @include tablet {
+        width: 100%;
+        height: 400px;
+        min-height: 400px;
+      }
 
       &:hover {
         .map-overlay {
@@ -63,12 +120,34 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0px 24px;
+      padding: 20px;
+
+      @include mobile {
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      @include tablet {
+        width: 100%;
+        padding: 30px 0;
+      }
+
+      @include desktop {
+        padding: 20px;
+      }
+
+      @include large-desktop {
+        padding: 24px;
+      }
 
       .contact-content-titles {
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        @include mobile-tablet {
+          text-align: center;
+        }
 
         h3 {
           font-family: var(--font-oswald);
@@ -78,6 +157,11 @@
           letter-spacing: 3px;
           position: relative;
 
+          @include mobile {
+            font-size: 14px;
+            letter-spacing: 2px;
+          }
+
           &::after {
             content: "";
             display: block;
@@ -85,13 +169,44 @@
             height: 2px;
             background-color: #7d7d7d;
             margin-top: 4px;
+
+            @include mobile {
+              width: 80px;
+            }
+
+            @include mobile-tablet {
+              margin-left: auto;
+              margin-right: auto;
+            }
           }
         }
 
         h2 {
           font-family: var(--font-montserrat);
           font-size: 46px;
-          line-height: 1;
+          line-height: 1.1;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+
+          @include mobile {
+            font-size: 28px;
+          }
+
+          @include tablet {
+            font-size: 36px;
+          }
+
+          @include desktop {
+            font-size: 38px;
+          }
+
+          @include large-desktop {
+            font-size: 42px;
+          }
+
+          @media (min-width: 1600px) {
+            font-size: 46px;
+          }
 
           span {
             color: #7d7d7d;
@@ -102,7 +217,27 @@
           font-family: var(--font-montserrat);
           font-size: 16px;
           line-height: 1.6;
-          max-width: 550px;
+          max-width: 100%;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+
+          @include mobile {
+            font-size: 14px;
+          }
+
+          @include tablet {
+            font-size: 15px;
+          }
+
+          @include desktop {
+            font-size: 15px;
+            max-width: 90%;
+          }
+
+          @include large-desktop {
+            font-size: 16px;
+            max-width: 550px;
+          }
         }
       }
 
@@ -114,12 +249,24 @@
         padding-bottom: 30px;
         border-bottom: 1px solid #3a3838;
 
+        @include mobile {
+          gap: 20px;
+        }
+
+        @include mobile-tablet {
+          align-items: center;
+        }
+
         .contact-content-contact-item {
           display: flex;
           align-items: center;
 
           gap: 15px;
           font-family: var(--font-montserrat);
+
+          @include mobile {
+            gap: 12px;
+          }
 
           .contact-content-contact-label {
             display: inline-flex;
@@ -131,6 +278,11 @@
             border: 2px solid transparent;
             transition: border 0.15s;
 
+            @include mobile {
+              width: 45px;
+              height: 45px;
+            }
+
             &:hover {
               border-color: white;
             }
@@ -139,6 +291,11 @@
               width: 25px;
               height: 25px;
               display: block;
+
+              @include mobile {
+                width: 22px;
+                height: 22px;
+              }
             }
           }
 
@@ -152,6 +309,22 @@
 
           .contact-content-contact-text {
             font-size: 18px;
+
+            @include mobile {
+              font-size: 14px;
+            }
+
+            @include tablet {
+              font-size: 15px;
+            }
+
+            @include desktop {
+              font-size: 16px;
+            }
+
+            @include large-desktop {
+              font-size: 18px;
+            }
           }
         }
       }
@@ -163,6 +336,10 @@
       font-family: var(--font-oswald);
       letter-spacing: 1px;
       gap: 10px;
+
+      @include mobile-tablet {
+        align-items: center;
+      }
 
       .contact-content-social-icons {
         display: flex;

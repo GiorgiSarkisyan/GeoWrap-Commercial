@@ -9,6 +9,11 @@
   align-items: center;
   gap: 15px;
 
+  @include mobile {
+    bottom: 20px;
+    right: 20px;
+  }
+
   .messenger-tooltip {
     background: white;
     color: #0084ff;
@@ -20,6 +25,10 @@
     font-size: 14px;
     font-weight: 600;
     animation: slideIn 0.3s ease, pulse 2s infinite 1s;
+
+    @include mobile {
+      display: none;
+    }
 
     @keyframes slideIn {
       from {
@@ -56,6 +65,11 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 
+    @include mobile {
+      width: 55px;
+      height: 55px;
+    }
+
     &:hover {
       transform: scale(1.1);
       background: #3a3838;
@@ -71,25 +85,11 @@
       width: 32px;
       height: 32px;
       color: white;
-    }
-  }
 
-  @media (max-width: 768px) {
-    bottom: 20px;
-    right: 20px;
-
-    .messenger-button {
-      width: 55px;
-      height: 55px;
-
-      .messenger-icon {
+      @include mobile {
         width: 28px;
         height: 28px;
       }
-    }
-
-    .messenger-tooltip {
-      display: none;
     }
   }
 }

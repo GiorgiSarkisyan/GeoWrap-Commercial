@@ -11,7 +11,7 @@ import Script from "next/script";
 
 export default function Page() {
   // Structured Data for Local Business
-  const structuredData = {
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     name: "GeoWrap",
@@ -53,15 +53,68 @@ export default function Page() {
       "Window Tinting",
       "Auto Detailing",
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "87",
+    },
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://geowrap.ge",
+      },
+    ],
+  };
+
+  // Organization Schema
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "GeoWrap",
+    url: "https://geowrap.ge",
+    logo: "https://geowrap.ge/images/no-bgnew.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+995593103113",
+      contactType: "customer service",
+      areaServed: "GE",
+      availableLanguage: ["en", "ka", "ru"],
+    },
+    sameAs: [
+      "https://www.facebook.com/Iwrapconceptz.ge",
+      "https://www.instagram.com/geowrap/",
+    ],
   };
 
   return (
     <>
-      {/* Structured Data */}
+      {/* Local Business Structured Data */}
       <Script
-        id="structured-data"
+        id="local-business-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
+      {/* Breadcrumb Structured Data */}
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* Organization Structured Data */}
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
       <Header />
