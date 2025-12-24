@@ -1,4 +1,4 @@
-// List of all images to preload
+// List of all images to preload (removed .heic as it's not widely supported)
 const IMAGES = [
   "/images/no-bg.png",
   "/images/full-logo.jpg",
@@ -7,7 +7,6 @@ const IMAGES = [
   "/images/cropped.png",
   "/images/about-us.jpeg",
   "/images/about-us2.jpg",
-  "/images/about-us3.heic",
   "/images/about-us4.jpeg",
   "/images/flags/en.png",
   "/images/flags/ru.png",
@@ -16,8 +15,11 @@ const IMAGES = [
 // Background video
 const VIDEOS = ["/background.mp4"];
 
+// Maximum preload time (3 seconds)
+const MAX_PRELOAD_TIME = 3000;
+
 /**
- * Preload images
+ * Preload images with timeout
  */
 const preloadImages = (): Promise<void[]> => {
   return Promise.all(
@@ -25,8 +27,16 @@ const preloadImages = (): Promise<void[]> => {
       (src) =>
         new Promise<void>((resolve) => {
           const img = new Image();
-          img.onload = () => resolve();
-          img.onerror = () => resolve(); // Resolve even if image fails to load
+          const timeout = setTimeout(() => resolve(), 2000); // 2 second timeout per image
+
+          img.onload = () => {
+            clearTimeout(timeout);
+            resolve();
+          };
+          img.onerror = () => {
+            clearTimeout(timeout);
+            resolve();
+          };
           img.src = src;
         })
     )
@@ -34,16 +44,30 @@ const preloadImages = (): Promise<void[]> => {
 };
 
 /**
- * Preload videos
+ * Preload videos with timeout (skip on mobile)
  */
 const preloadVideos = (): Promise<void[]> => {
+  // Skip video preloading on mobile devices
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    return Promise.resolve([]);
+  }
+
   return Promise.all(
     VIDEOS.map(
       (src) =>
         new Promise<void>((resolve) => {
           const video = document.createElement("video");
-          video.onloadeddata = () => resolve();
-          video.onerror = () => resolve(); // Resolve even if video fails to load
+          const timeout = setTimeout(() => resolve(), 2000); // 2 second timeout
+
+          video.onloadeddata = () => {
+            clearTimeout(timeout);
+            resolve();
+          };
+          video.onerror = () => {
+            clearTimeout(timeout);
+            resolve();
+          };
           video.preload = "auto";
           video.src = src;
         })
@@ -52,11 +76,15 @@ const preloadVideos = (): Promise<void[]> => {
 };
 
 /**
- * Preload all critical assets
+ * Preload all critical assets with overall timeout
  */
 export const preloadAllAssets = async (): Promise<void> => {
   try {
-    await Promise.all([preloadImages(), preloadVideos()]);
+    // Race between preloading and timeout
+    await Promise.race([
+      Promise.all([preloadImages(), preloadVideos()]),
+      new Promise<void>((resolve) => setTimeout(resolve, MAX_PRELOAD_TIME)),
+    ]);
   } catch (error) {
     console.error("Error preloading assets:", error);
   }
