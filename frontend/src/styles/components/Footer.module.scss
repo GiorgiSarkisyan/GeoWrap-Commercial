@@ -14,17 +14,17 @@
   .footer-content {
     max-width: 1450px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 $offset10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: $offset10;
 
     @include mobile {
       flex-direction: column;
       align-items: flex-start;
       gap: 25px;
-      padding: 0 20px;
+      padding: 0 $offset5;
     }
 
     @include tablet {
@@ -36,7 +36,7 @@
   .footer-left {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: $offset4;
     flex: 1;
 
     .footer-logo {
@@ -64,7 +64,7 @@
       }
 
       @include tablet {
-        font-size: 12px;
+        font-size: $offset3;
       }
 
       @include desktop {
@@ -90,7 +90,7 @@
       gap: 15px;
 
       @include mobile {
-        gap: 12px;
+        gap: $offset3;
       }
 
       .social-icon {
@@ -102,14 +102,14 @@
         align-items: center;
         justify-content: center;
         color: $color-text-secondary;
-        font-size: 20px;
+        font-size: $offset5;
         transition: all $transition-default;
         border: 1px solid $color-tertiary-bg;
 
         @include mobile {
-          width: 36px;
-          height: 36px;
-          font-size: 16px;
+          width: $offset9;
+          height: $offset9;
+          font-size: $offset4;
         }
 
         @include tablet {
@@ -119,15 +119,15 @@
         }
 
         @include desktop {
-          width: 40px;
-          height: 40px;
+          width: $offset10;
+          height: $offset10;
           font-size: 18px;
         }
 
         @include large-desktop {
           width: 44px;
           height: 44px;
-          font-size: 20px;
+          font-size: $offset5;
         }
 
         @media (hover: hover) {
@@ -171,7 +171,7 @@
       }
 
       @include desktop {
-        font-size: 12px;
+        font-size: $offset3;
       }
 
       @include large-desktop {

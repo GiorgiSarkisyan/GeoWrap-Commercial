@@ -20,14 +20,14 @@
   .selected {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: $offset2;
     background-color: $color-secondary-bg;
-    padding: 6px 12px;
+    padding: 6px $offset3;
     border-radius: 6px;
     color: white;
 
     .arrow {
-      margin-left: 4px;
+      margin-left: $offset1;
     }
   }
 
@@ -38,7 +38,7 @@
     background-color: $color-secondary-bg;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 $offset1 $offset2 rgba(0, 0, 0, 0.3);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -47,8 +47,8 @@
     .dropdown-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
+      gap: $offset2;
+      padding: $offset2 $offset3;
       color: white;
       transition: background 0.2s;
 
@@ -66,7 +66,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 80px;
+  height: $offset20;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,13 +74,13 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: background-color ease;
-  padding: 0px 40px;
+  padding: 0px $offset10;
   font-family: var(--font-montserrat);
   user-select: none;
   z-index: 10;
 
   @include mobile {
-    padding: 0 20px;
+    padding: 0 $offset5;
     height: 70px;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -129,7 +129,7 @@
     .list-item {
       position: relative;
       cursor: pointer;
-      font-size: 20px;
+      font-size: $offset5;
       font-weight: 500;
 
       &::after {
@@ -155,7 +155,7 @@
       }
 
       @include large-desktop {
-        font-size: 20px;
+        font-size: $offset5;
       }
     }
   }
@@ -166,7 +166,7 @@
     background: none;
     border: none;
     color: white;
-    font-size: 32px;
+    font-size: $offset8;
     cursor: pointer;
     padding: 0;
     z-index: 1001;
@@ -195,9 +195,9 @@
       right: 0;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      animation: slideDown $transition-default-out;
+      padding: $offset5;
+      box-shadow: 0 $offset1 6px rgba(0, 0, 0, 0.1);
+      animation: slideDown $transition-default;
       max-height: calc(100vh - 70px);
       overflow-y: auto;
     }
@@ -205,7 +205,7 @@
     @keyframes slideDown {
       from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-$offset5);
       }
       to {
         opacity: 1;
@@ -220,12 +220,12 @@
       }
       to {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-$offset5);
       }
     }
 
     &.closing {
-      animation: slideUp $transition-default-out;
+      animation: slideUp $transition-default;
     }
 
     .mobile-nav {
@@ -235,21 +235,22 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: $offset5;
 
         .mobile-list-item {
           color: white;
           font-size: 18px;
           font-weight: 500;
-          padding: 12px 16px;
+          padding: $offset3 $offset4;
           cursor: pointer;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-          transition: background $transition-default, padding-left $transition-default;
+          transition: background $transition-default,
+            padding-left $transition-default;
 
           @media (hover: hover) {
             &:hover {
               background-color: rgba(255, 255, 255, 0.05);
-              padding-left: 24px;
+              padding-left: $offset6;
             }
           }
 
@@ -261,10 +262,10 @@
     }
 
     .mobile-language-section {
-      margin-top: 20px;
-      padding-top: 20px;
+      margin-top: $offset5;
+      padding-top: $offset5;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      animation: fadeIn $transition-default-out 0.2s both;
+      animation: fadeIn $transition-default 0.2s both;
 
       @keyframes fadeIn {
         from {
@@ -285,9 +286,9 @@
         .selected {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: $offset2;
           background-color: $color-secondary-bg;
-          padding: 12px 16px;
+          padding: $offset3 $offset4;
           border-radius: 6px;
           color: white;
           justify-content: center;
@@ -300,18 +301,18 @@
           }
 
           .arrow {
-            margin-left: 4px;
+            margin-left: $offset1;
             transition: transform $transition-default;
           }
         }
 
         .dropdown {
           position: relative;
-          top: 8px;
+          top: $offset2;
           background-color: $color-secondary-bg;
           border-radius: 6px;
           overflow: hidden;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 $offset1 $offset2 rgba(0, 0, 0, 0.3);
           list-style: none;
           margin: 0;
           padding: 0;
@@ -331,8 +332,8 @@
           .dropdown-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
+            gap: $offset2;
+            padding: $offset3 $offset4;
             color: white;
             transition: background 0.2s;
 

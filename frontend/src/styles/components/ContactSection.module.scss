@@ -8,16 +8,16 @@
 
   @include mobile {
     min-height: 100vh;
-    padding: 40px 0;
+    padding: $offset10 0;
   }
 
   @include tablet {
     min-height: 90vh;
-    padding: 60px 0;
+    padding: $offset15 0;
   }
 
   @include desktop {
-    padding: 80px 0;
+    padding: $offset20 0;
   }
 
   @include large-desktop {
@@ -43,8 +43,8 @@
 
     @include mobile {
       flex-direction: column-reverse;
-      padding: 20px;
-      margin: 0 20px;
+      padding: $offset5;
+      margin: 0 $offset5;
     }
 
     @include tablet {
@@ -54,11 +54,11 @@
     }
 
     @include desktop {
-      margin: 0 40px;
+      margin: 0 $offset10;
     }
 
     @include large-desktop {
-      margin: 0 40px;
+      margin: 0 $offset10;
     }
 
     @media (min-width: 1600px) {
@@ -128,11 +128,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 20px;
+      padding: $offset5;
 
       @include mobile {
         width: 100%;
-        padding: 20px 0;
+        padding: $offset5 0;
       }
 
       @include tablet {
@@ -141,11 +141,11 @@
       }
 
       @include desktop {
-        padding: 20px;
+        padding: $offset5;
       }
 
       @include large-desktop {
-        padding: 24px;
+        padding: $offset6;
       }
 
       .contact-content-titles {
@@ -182,7 +182,7 @@
             width: 100%;
             height: 2px;
             background-color: $color-text-muted;
-            margin-top: 4px;
+            margin-top: $offset1;
 
             @include mobile-tablet {
               margin-left: auto;
@@ -199,11 +199,11 @@
           overflow-wrap: break-word;
 
           @include mobile {
-            font-size: 28px;
+            font-size: $offset7;
           }
 
           @include tablet {
-            font-size: 36px;
+            font-size: $offset9;
           }
 
           @include desktop {
@@ -225,7 +225,7 @@
 
         p {
           font-family: var(--font-montserrat);
-          font-size: 16px;
+          font-size: $offset4;
           line-height: 1.6;
           max-width: 100%;
           word-wrap: break-word;
@@ -245,7 +245,7 @@
           }
 
           @include large-desktop {
-            font-size: 16px;
+            font-size: $offset4;
             max-width: 550px;
           }
         }
@@ -260,7 +260,7 @@
         border-bottom: 1px solid $color-tertiary-bg;
 
         @include mobile {
-          gap: 20px;
+          gap: $offset5;
         }
 
         @include mobile-tablet {
@@ -275,7 +275,7 @@
           font-family: var(--font-montserrat);
 
           @include mobile {
-            gap: 12px;
+            gap: $offset3;
           }
 
           .contact-content-contact-link {
@@ -333,7 +333,7 @@
             }
 
             @include desktop {
-              font-size: 16px;
+              font-size: $offset4;
             }
 
             @include large-desktop {
@@ -344,7 +344,7 @@
       }
     }
     .contact-content-socials {
-      margin-top: 20px;
+      margin-top: $offset5;
       display: flex;
       flex-direction: column;
       font-family: var(--font-oswald);
@@ -410,7 +410,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: $offset5;
     animation: fadeIn $transition-default;
 
     @keyframes fadeIn {
@@ -437,8 +437,8 @@
 
     .map-modal-close {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: $offset5;
+      right: $offset5;
       width: 50px;
       height: 50px;
       background: white;
@@ -452,8 +452,8 @@
       z-index: 10000;
 
       svg {
-        width: 28px;
-        height: 28px;
+        width: $offset7;
+        height: $offset7;
         color: black;
       }
 

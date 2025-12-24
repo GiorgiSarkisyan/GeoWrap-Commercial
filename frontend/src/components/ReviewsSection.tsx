@@ -113,13 +113,6 @@ export default function ReviewsSection() {
 
         <div ref={carouselRef} className={styles["reviews-carousel"]}>
           <div className={styles["swiper-container-wrapper"]}>
-            <button
-              className={`${styles["nav-button"]} ${styles["nav-button-prev"]}`}
-              aria-label="Previous review"
-            >
-              <FaChevronLeft />
-            </button>
-
             <Swiper
               modules={[Navigation, Pagination, Autoplay, EffectFade]}
               effect="fade"
@@ -159,9 +152,6 @@ export default function ReviewsSection() {
                           </div>
                         </div>
                       </div>
-                      <span className={styles["review-time"]}>
-                        {review.time}
-                      </span>
                     </div>
                     <p className={styles["review-text"]}>
                       &quot;{review.text}&quot;
@@ -170,6 +160,27 @@ export default function ReviewsSection() {
                 </SwiperSlide>
               ))}
             </Swiper>
+          </div>
+
+          <div className={styles["swiper-pagination"]} />
+
+          <div className={styles["nav-buttons-wrapper"]}>
+            <button
+              className={`${styles["nav-button"]} ${styles["nav-button-prev"]}`}
+              aria-label="Previous review"
+            >
+              <FaChevronLeft />
+            </button>
+
+            <a
+              ref={buttonRef}
+              href="https://maps.app.goo.gl/2MEk65V3cRrb1Q2q9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles["view-all-link"]}
+            >
+              {t.reviews.viewAll}
+            </a>
 
             <button
               className={`${styles["nav-button"]} ${styles["nav-button-next"]}`}
@@ -178,19 +189,7 @@ export default function ReviewsSection() {
               <FaChevronRight />
             </button>
           </div>
-
-          <div className={styles["swiper-pagination"]} />
         </div>
-
-        <a
-          ref={buttonRef}
-          href="https://maps.app.goo.gl/2MEk65V3cRrb1Q2q9"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles["view-all-link"]}
-        >
-          {t.reviews.viewAll}
-        </a>
       </div>
     </section>
   );

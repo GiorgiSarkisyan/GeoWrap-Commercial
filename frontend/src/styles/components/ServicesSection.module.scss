@@ -44,7 +44,7 @@
   background-color: $color-primary-bg;
   height: auto;
   min-height: 92dvh;
-  padding: 40px 0;
+  padding: $offset10 0;
 
   @include mobile {
     min-height: 100vh;
@@ -60,7 +60,7 @@
 
   @include large-desktop {
     height: auto;
-    padding: 40px 0;
+    padding: $offset10 0;
   }
 
   @media (min-width: 1600px) {
@@ -73,15 +73,15 @@
     padding: 0px 100px;
 
     @include mobile {
-      padding: 0 20px;
+      padding: 0 $offset5;
     }
 
     @include tablet {
-      padding: 0 40px;
+      padding: 0 $offset10;
     }
 
     @include desktop {
-      padding: 0 60px;
+      padding: 0 $offset15;
     }
 
     @include large-desktop {
@@ -92,34 +92,34 @@
       font-family: var(--font-oswald);
       color: white;
       text-align: center;
-      padding: 40px;
-      font-size: 36px;
+      padding: $offset10;
+      font-size: $offset9;
       text-transform: uppercase;
       letter-spacing: 3px;
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: $offset5;
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
 
       @include mobile {
-        font-size: 24px;
-        padding: 30px 20px;
+        font-size: $offset6;
+        padding: 30px $offset5;
         letter-spacing: 2px;
         margin-bottom: 10px;
       }
 
       @include tablet {
-        font-size: 28px;
+        font-size: $offset7;
         padding: 35px;
       }
 
       @include desktop {
-        font-size: 32px;
+        font-size: $offset8;
       }
 
       @include large-desktop {
-        font-size: 36px;
+        font-size: $offset9;
       }
 
       &::after {
@@ -128,7 +128,7 @@
         width: 100%;
         height: 2px;
         background-color: white;
-        margin: 4px auto 0;
+        margin: $offset1 auto 0;
       }
     }
 
@@ -137,19 +137,19 @@
       grid-template-columns: repeat(5, 270px);
       gap: 25px;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: $offset5;
 
       @include mobile {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: $offset5;
         padding: 0 10px;
       }
 
       @include tablet {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: $offset5;
         max-width: 700px;
-        margin: 20px auto 0;
+        margin: $offset5 auto 0;
       }
 
       @include desktop {
@@ -172,7 +172,7 @@
         display: flex;
         align-items: flex-end;
         justify-content: flex-start;
-        padding: 20px;
+        padding: $offset5;
         color: white;
         text-align: center;
         border: 2px solid transparent;
@@ -194,13 +194,13 @@
         h3 {
           position: relative;
           z-index: 2;
-          font-size: 20px;
+          font-size: $offset5;
           font-family: var(--font-oswald);
           font-weight: 300;
           transition: font-size $transition-default;
 
           @include mobile {
-            font-size: 16px;
+            font-size: $offset4;
           }
 
           @include tablet {
@@ -212,7 +212,7 @@
           }
 
           @include large-desktop {
-            font-size: 20px;
+            font-size: $offset5;
           }
         }
 
@@ -256,7 +256,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur($offset1);
   z-index: 998;
   animation: backdropFadeIn $transition-fast forwards;
   will-change: opacity;
@@ -348,7 +348,7 @@
       border: none;
       color: white;
       cursor: pointer;
-      font-size: 20px;
+      font-size: $offset5;
       z-index: 1000;
       transition: color $transition-base;
       background-color: $color-secondary-bg;
@@ -365,16 +365,16 @@
     .modal-content-text {
       display: flex;
       flex-direction: column;
-      padding: 10px 40px;
-      gap: 20px;
+      padding: 10px $offset10;
+      gap: $offset5;
 
       @include mobile {
-        padding: 15px 20px;
+        padding: 15px $offset5;
         gap: 15px;
       }
 
       @include tablet {
-        padding: 20px 30px;
+        padding: $offset5 30px;
       }
 
       .modal-header {
@@ -390,24 +390,24 @@
           margin-bottom: 10px;
 
           @include mobile {
-            font-size: 28px;
-            margin-bottom: 8px;
+            font-size: $offset7;
+            margin-bottom: $offset2;
           }
 
           @include tablet {
-            font-size: 32px;
+            font-size: $offset8;
           }
         }
 
         .modal-header-subtitle {
           font-family: var(--font-montserrat);
-          font-size: 20px;
+          font-size: $offset5;
           font-weight: 400;
           display: inline-block;
           color: $color-gray-light;
 
           @include mobile {
-            font-size: 16px;
+            font-size: $offset4;
           }
 
           @include tablet {
@@ -418,7 +418,7 @@
 
       .modal-paragraph {
         font-family: var(--font-montserrat);
-        font-size: 16px;
+        font-size: $offset4;
         color: $color-gray;
 
         @include mobile {

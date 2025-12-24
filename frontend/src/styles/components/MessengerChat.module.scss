@@ -10,16 +10,16 @@
   gap: 15px;
 
   @include mobile {
-    bottom: 20px;
-    right: 20px;
+    bottom: $offset5;
+    right: $offset5;
   }
 
   .messenger-tooltip {
     background: white;
     color: $color-messenger-blue;
-    padding: 12px 20px;
+    padding: $offset3 $offset5;
     border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 $offset1 $offset3 rgba(0, 0, 0, 0.15);
     white-space: nowrap;
     font-family: var(--font-montserrat);
     font-size: 14px;
@@ -53,8 +53,8 @@
   }
 
   .messenger-button {
-    width: 60px;
-    height: 60px;
+    width: $offset15;
+    height: $offset15;
     border-radius: 50%;
     background: $color-secondary-bg;
     border: 1px solid $color-tertiary-bg;
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 $offset1 $offset5 rgba(0, 0, 0, 0.3);
     transition: all $transition-default;
 
     @include mobile {
@@ -84,13 +84,13 @@
     }
 
     .messenger-icon {
-      width: 32px;
-      height: 32px;
+      width: $offset8;
+      height: $offset8;
       color: white;
 
       @include mobile {
-        width: 28px;
-        height: 28px;
+        width: $offset7;
+        height: $offset7;
       }
     }
   }

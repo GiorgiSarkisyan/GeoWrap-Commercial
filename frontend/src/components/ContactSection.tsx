@@ -209,7 +209,7 @@ export default function ContactSection() {
           </div>
           <iframe
             className={styles["contact-iframe"]}
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2975.0221181533357!2d44.763077076079874!3d41.784736971252215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzA1LjEiTiA0NMKwNDUnNTYuNCJF!5e0!3m2!1sru!2sge!4v1764684491051!5m2!1sru!2sge"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2975.0221181533357!2d44.763077076079874!3d41.784736971252215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzA1LjEiTiA0NMKwNDUnNTYuNCJF!5e0!3m2!1sen!2sge!4v1764684491051!5m2!1sen!2sge"
             loading="lazy"
             title="GeoWrap location preview"
             aria-hidden="false"
@@ -238,7 +238,7 @@ export default function ContactSection() {
           >
             <iframe
               className={styles["map-modal-iframe"]}
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2975.0221181533357!2d44.763077076079874!3d41.784736971252215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzA1LjEiTiA0NMKwNDUnNTYuNCJF!5e0!3m2!1sru!2sge!4v1764684491051!5m2!1sru!2sge"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2975.0221181533357!2d44.763077076079874!3d41.784736971252215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQ3JzA1LjEiTiA0NMKwNDUnNTYuNCJF!5e0!3m2!1sen!2sge!4v1764684491051!5m2!1sen!2sge"
               loading="lazy"
               title="GeoWrap location"
               aria-hidden="false"

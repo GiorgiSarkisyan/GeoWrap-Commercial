@@ -45,15 +45,15 @@
   width: 100%;
   height: 100%;
   justify-content: flex-end;
-  padding: 160px;
+  padding: $offset40;
 
   @include mobile {
-    padding: 100px 20px;
-    gap: 20px;
+    padding: 100px $offset5;
+    gap: $offset5;
   }
 
   @include tablet {
-    padding: 120px 40px;
+    padding: $offset30 $offset10;
     gap: 25px;
   }
 
@@ -95,14 +95,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: $offset15;
 
     @include mobile {
       gap: 30px;
     }
 
     @include tablet {
-      gap: 40px;
+      gap: $offset10;
     }
 
     h1 {
@@ -116,7 +116,7 @@
       max-width: 900px;
 
       @include mobile {
-        font-size: 32px;
+        font-size: $offset8;
         letter-spacing: 1px;
         max-width: 100%;
       }
@@ -138,8 +138,8 @@
 
     button {
       font-family: var(--font-montserrat);
-      padding: 16px 40px;
-      font-size: 16px;
+      padding: $offset4 $offset10;
+      font-size: $offset4;
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -151,32 +151,32 @@
       transition: all $transition-default;
 
       @include mobile {
-        font-size: 12px;
-        padding: 12px 28px;
+        font-size: $offset3;
+        padding: $offset3 $offset7;
       }
 
       @include tablet {
         font-size: 13px;
-        padding: 14px 32px;
+        padding: 14px $offset8;
       }
 
       @include desktop {
         font-size: 14px;
-        padding: 15px 36px;
+        padding: 15px $offset9;
       }
 
       @include large-desktop {
-        font-size: 16px;
-        padding: 16px 40px;
+        font-size: $offset4;
+        padding: $offset4 $offset10;
       }
 
       @include mobile {
-        padding: 12px 28px;
+        padding: $offset3 $offset7;
         font-size: 14px;
       }
 
       @include tablet {
-        padding: 14px 32px;
+        padding: 14px $offset8;
         font-size: 15px;
       }
 
@@ -199,12 +199,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: $offset3;
   animation: bounce 2s infinite;
 
   @include mobile {
-    bottom: 20px;
-    gap: 8px;
+    bottom: $offset5;
+    gap: $offset2;
   }
 
   span {
@@ -220,7 +220,7 @@
     }
 
     @include tablet {
-      font-size: 12px;
+      font-size: $offset3;
     }
 
     @include desktop {
@@ -233,7 +233,7 @@
   }
 
   .scroll-arrow {
-    font-size: 20px;
+    font-size: $offset5;
     color: white;
     opacity: 0.8;
 
@@ -242,7 +242,7 @@
     }
 
     @include tablet {
-      font-size: 16px;
+      font-size: $offset4;
     }
 
     @include desktop {
@@ -250,7 +250,7 @@
     }
 
     @include large-desktop {
-      font-size: 20px;
+      font-size: $offset5;
     }
   }
 }
