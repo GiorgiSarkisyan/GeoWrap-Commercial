@@ -78,12 +78,12 @@ export default function HeroSection() {
     <section id="hero" className={styles["main-section"]}>
       <video
         ref={videoRef}
-        autoPlay={!isMobile}
+        autoPlay
         muted
         loop
         playsInline
         className={styles["background-video"]}
-        preload={isMobile ? "none" : "auto"}
+        preload="auto"
         poster="/images/video-poster.jpg"
         style={{ contentVisibility: "auto" }}
       >
