@@ -47,14 +47,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/no-bgnew.png", sizes: "any" },
-      { url: "/images/no-bgnew.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/no-bgnew.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/black-icon.png", sizes: "any" },
+      { url: "/images/black-icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/black-icon.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [
-      { url: "/images/no-bgnew.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/black-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: ["/images/no-bgnew.png"],
+    shortcut: ["/images/black-icon.png"],
   },
   openGraph: {
     type: "website",
@@ -106,6 +106,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "GeoWrap",
+              url: "https://www.geowrap.ge",
+            }),
+          }}
+        />
       </head>
       <body
         className={`${montserrat.variable} ${oswald.variable} ${exo2.variable}`}
