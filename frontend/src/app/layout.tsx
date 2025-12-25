@@ -93,8 +93,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-search-console-verification-code-here",
-    // yandex: "your-yandex-verification-code", // Optional for Russian market
+    google: "8v2-RcwxjlhvzcKb-V6tu2MCdKxYxPdv953Jn1qxOEY",
   },
 };
 
