@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import { BiLeftArrow } from "react-icons/bi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const workshop = [
   {
@@ -93,6 +94,17 @@ const workshop = [
 export default function WorkshopSection() {
   const { t } = useLanguage();
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1023);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section id="workshop" className={styles["workshop-section"]}>
       <div className={styles["workshop-header"]}>
@@ -112,8 +124,8 @@ export default function WorkshopSection() {
           loop
           grabCursor
           speed={600}
-          touchRatio={0.3}
-          resistanceRatio={0.8}
+          touchRatio={isMobile ? 0.3 : 1}
+          resistanceRatio={isMobile ? 0.8 : 1}
           shortSwipes={false}
           coverflowEffect={{
             rotate: 0,
