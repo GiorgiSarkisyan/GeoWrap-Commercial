@@ -14,9 +14,9 @@ export default function Page() {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     name: "GeoWrap",
-    image: "https://geowrap.ge/images/no-bgnew.png",
-    "@id": "https://geowrap.ge",
-    url: "https://geowrap.ge",
+    image: "https://www.geowrap.ge/images/no-bgnew.png",
+    "@id": "https://www.geowrap.ge",
+    url: "https://www.geowrap.ge",
     telephone: "+995593103113",
     email: "geowraptbilisi@gmail.com",
     address: {
@@ -74,7 +74,7 @@ export default function Page() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://geowrap.ge",
+        item: "https://www.geowrap.ge",
       },
     ],
   };
@@ -83,8 +83,8 @@ export default function Page() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "GeoWrap",
-    url: "https://geowrap.ge",
-    logo: "https://geowrap.ge/images/no-bgnew.png",
+    url: "https://www.geowrap.ge",
+    logo: "https://www.geowrap.ge/images/no-bgnew.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+995593103113",

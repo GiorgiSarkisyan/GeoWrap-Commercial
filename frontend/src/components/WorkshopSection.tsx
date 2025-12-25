@@ -12,6 +12,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import { BiLeftArrow } from "react-icons/bi";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const workshop = [
   {
@@ -91,6 +94,17 @@ const workshop = [
 export default function WorkshopSection() {
   const { t } = useLanguage();
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1023);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section id="workshop" className={styles["workshop-section"]}>
       <div className={styles["workshop-header"]}>
@@ -101,13 +115,19 @@ export default function WorkshopSection() {
       </div>
       <div className={styles["workshop-content"]}>
         <Swiper
+          key={isMobile ? "mobile" : "desktop"}
           effect="coverflow"
           className={styles["swiper"]}
           modules={[Navigation, Pagination, EffectCoverflow, Autoplay]}
-          slidesPerView={"auto"}
-          centeredSlides={true}
-          loop={true}
-          grabCursor={true}
+          slidesPerView="auto"
+          touchEventsTarget="container"
+          centeredSlides
+          loop
+          grabCursor
+          speed={600}
+          touchRatio={isMobile ? 1.25 : 0.3}
+          resistanceRatio={isMobile ? 1.25 : 0.8}
+          shortSwipes={isMobile ? true : false}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -115,10 +135,17 @@ export default function WorkshopSection() {
             modifier: 1,
           }}
           autoplay={{
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
-          pagination={{ el: ".custom-pagination" }}
+          navigation={{
+            prevEl: ".workshop-prev",
+            nextEl: ".workshop-next",
+          }}
+          pagination={{
+            el: ".custom-pagination",
+            clickable: true,
+          }}
         >
           {workshop.map((item) => (
             <SwiperSlide key={item.id} className={styles["workshop-slide"]}>
@@ -139,8 +166,23 @@ export default function WorkshopSection() {
               </div>
             </SwiperSlide>
           ))}
+
+          <div className={styles["pagination-nav-wrapper"]}>
+            <button
+              className={`${styles["nav-button"]} workshop-prev`}
+              aria-label="Previous slide"
+            >
+              <FaChevronLeft />
+            </button>
+            <div className="custom-pagination"></div>
+            <button
+              className={`${styles["nav-button"]} workshop-next`}
+              aria-label="Next slide"
+            >
+              <FaChevronRight />
+            </button>
+          </div>
         </Swiper>
-        <div className="custom-pagination"></div>
       </div>
     </section>
   );

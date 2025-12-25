@@ -1,7 +1,7 @@
 @use "../variables.module" as *;
 
 .reviews-section {
-  height: 75dvh;
+  height: 75vh;
   background-color: $color-secondary-bg;
   padding: $offset15 $offset10;
   display: flex;
@@ -159,6 +159,12 @@
       display: flex;
       justify-content: center;
       gap: 10px;
+
+      @include mobile {
+        position: static;
+        margin-top: 15px;
+        gap: 6px;
+      }
 
       :global(.swiper-pagination-bullet) {
         width: 8px;

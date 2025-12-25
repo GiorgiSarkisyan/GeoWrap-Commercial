@@ -23,9 +23,22 @@ export default function ContactSection() {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
   const [isMapClosing, setIsMapClosing] = useState(false);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isMapModalOpen) {
+      document.body.style.overflow = "hidden";
+
+      lenis?.stop();
+
+      return () => {
+        lenis?.start();
+        document.body.style.overflow = "auto";
+      };
+    }
+  }, [isMapModalOpen, lenis]);
+
   const openMapModal = () => {
     setIsMapModalOpen(true);
-    lenis?.stop();
   };
 
   const closeMapModal = () => {
@@ -33,7 +46,6 @@ export default function ContactSection() {
     setTimeout(() => {
       setIsMapClosing(false);
       setIsMapModalOpen(false);
-      lenis?.start();
     }, 300);
   };
 
@@ -180,7 +192,7 @@ export default function ContactSection() {
                 href="https://www.instagram.com/geowrap/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Visit our Facebook page"
+                aria-label="Visit our Instagram page"
                 className={styles["contact-content-contact-link"]}
               >
                 <span>
