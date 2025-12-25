@@ -115,6 +115,7 @@ export default function WorkshopSection() {
       </div>
       <div className={styles["workshop-content"]}>
         <Swiper
+          key={isMobile ? "mobile" : "desktop"}
           effect="coverflow"
           className={styles["swiper"]}
           modules={[Navigation, Pagination, EffectCoverflow, Autoplay]}
@@ -124,8 +125,8 @@ export default function WorkshopSection() {
           loop
           grabCursor
           speed={600}
-          touchRatio={isMobile ? 0.3 : 1}
-          resistanceRatio={isMobile ? 0.8 : 1.25}
+          touchRatio={isMobile ? 1.25 : 0.3}
+          resistanceRatio={isMobile ? 1.25 : 0.8}
           shortSwipes={false}
           coverflowEffect={{
             rotate: 0,
