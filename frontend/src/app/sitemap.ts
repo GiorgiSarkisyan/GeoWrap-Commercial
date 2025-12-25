@@ -1,12 +1,12 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://geowrap.ge";
+  const baseUrl = "https://www.geowrap.ge";
 
   return [
     {
       url: baseUrl,
-      lastModified: "2025-12-25",
+      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
     },

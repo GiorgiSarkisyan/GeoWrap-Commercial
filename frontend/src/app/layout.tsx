@@ -13,7 +13,7 @@ const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 const exo2 = Exo_2({ subsets: ["latin"], variable: "--font-exo2" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://geowrap.ge"),
+  metadataBase: new URL("https://www.geowrap.ge"),
   title: "GeoWrap Tbilisi | Car Wrapping & PPF Services in Georgia",
   description:
     "GeoWrap is Georgia's automotive customization studio specializing in paint protection film (PPF), vinyl wraps, ceramic coating, and premium detailing services in Tbilisi.",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: ["ka_GE", "ru_RU"],
-    url: "https://geowrap.ge",
+    url: "https://www.geowrap.ge",
     siteName: "GeoWrap",
     title: "GeoWrap Tbilisi | Car Wrapping & PPF Services",
     description:

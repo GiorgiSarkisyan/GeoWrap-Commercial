@@ -6,4 +6,4 @@ Allow: /
 # Disallow: /admin/
 
 # Sitemap
-Sitemap: https://geowrap.ge/sitemap.xml
+Sitemap: https://www.geowrap.ge/sitemap.xml
