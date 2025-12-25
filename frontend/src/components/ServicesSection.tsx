@@ -50,7 +50,7 @@ export default function ServicesSection() {
 
   const openModal = (service: (typeof services)[0]) => {
     setSelectedService(service);
-    document.body.style.overflow = "static";
+    document.body.style.overflow = "hidden";
     lenis?.stop();
   };
 
