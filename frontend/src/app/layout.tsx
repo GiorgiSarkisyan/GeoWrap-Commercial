@@ -106,6 +106,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "GeoWrap",
+              url: "https://www.geowrap.ge",
+            }),
+          }}
+        />
       </head>
       <body
         className={`${montserrat.variable} ${oswald.variable} ${exo2.variable}`}
