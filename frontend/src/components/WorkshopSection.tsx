@@ -127,7 +127,7 @@ export default function WorkshopSection() {
           speed={600}
           touchRatio={isMobile ? 1.25 : 0.3}
           resistanceRatio={isMobile ? 1.25 : 0.8}
-          shortSwipes={false}
+          shortSwipes={isMobile ? true : false}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
