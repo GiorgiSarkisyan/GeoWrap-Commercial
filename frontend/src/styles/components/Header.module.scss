@@ -71,8 +71,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   transition: background-color ease;
   padding: 0px $offset10;
   font-family: var(--font-montserrat);
@@ -82,8 +80,6 @@
   @include mobile {
     padding: 0 $offset5;
     height: 70px;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
 
   @include tablet {

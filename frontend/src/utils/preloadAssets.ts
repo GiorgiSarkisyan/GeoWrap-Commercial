@@ -11,7 +11,7 @@ const IMAGES = [
   "/images/flags/ru.png",
 ];
 
-const VIDEOS = ["/background.mp4"];
+const VIDEOS = ["/compressed.mp4"];
 
 const MAX_PRELOAD_TIME = 3000;
 

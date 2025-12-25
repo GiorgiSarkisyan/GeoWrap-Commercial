@@ -98,8 +98,11 @@ export default function Header() {
       ticking = true;
       requestAnimationFrame(() => {
         const scrollY = window.scrollY || window.pageYOffset;
-        const limit = Math.max(heroHeight * 0.6, 1);
-        const ratio = Math.min(Math.max(scrollY / limit, 0), 1);
+
+        // Header gets full color at 65% of hero section
+        const fadeLimit = heroHeight * 0.65;
+        const ratio = Math.min(Math.max(scrollY / fadeLimit, 0), 1);
+
         const bgColor = `rgba(33, 32, 32, ${ratio})`;
 
         header.style.backgroundColor = bgColor;

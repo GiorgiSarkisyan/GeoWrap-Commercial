@@ -84,7 +84,6 @@ export default function HeroSection() {
         playsInline
         className={styles["background-video"]}
         preload="auto"
-        poster="/images/video-poster.jpg"
         style={{ contentVisibility: "auto" }}
       >
         <source src="/compressed.mp4" type="video/mp4" />

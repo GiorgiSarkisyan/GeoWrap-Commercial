@@ -160,6 +160,13 @@
       justify-content: center;
       gap: 10px;
 
+      @include mobile {
+        position: static;
+        margin-top: 15px;
+        gap: 6px;
+        /* Ensure pagination is always visible and not pushed out of view on mobile */
+      }
+
       :global(.swiper-pagination-bullet) {
         width: 8px;
         height: 8px;

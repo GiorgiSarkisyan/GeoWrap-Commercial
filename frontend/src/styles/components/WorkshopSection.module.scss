@@ -1,5 +1,68 @@
 @use "../variables.module" as *;
 
+.pagination-nav-wrapper {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 32px;
+  width: fit-content;
+  pointer-events: none; // Allow drag events to pass through except for children
+
+  > * {
+    pointer-events: auto; // Buttons and pagination are still clickable
+  }
+
+  @include mobile {
+    gap: 15px;
+    margin-top: 18px;
+  }
+}
+
+.nav-button {
+  background: $color-primary-bg;
+  border: 1px solid $color-tertiary-bg;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all $transition-default;
+  flex-shrink: 0;
+
+  @include mobile {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: $color-white;
+      color: $color-primary-bg;
+      border-color: $color-white;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
 .workshop-section {
   height: auto;
   min-height: 92dvh;
@@ -111,18 +174,15 @@
     }
 
     :global(.custom-pagination) {
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
       justify-content: center;
       gap: $offset2;
       z-index: 1;
 
       @include mobile {
-        bottom: -22px;
+        position: static;
         gap: 6px;
+        /* Ensure pagination is always visible and not pushed out of view on mobile */
       }
 
       @include tablet {
@@ -170,7 +230,7 @@
 
     :global(.swiper-slide:not(.swiper-slide-active)) {
       filter: blur(1px) brightness(0.9);
-      transition: filter $transition-slow, transform $transition-slow;
+      transition: filter 1.2s ease, transform 1.2s ease;
       transform-origin: center center;
       pointer-events: none;
     }
@@ -178,7 +238,7 @@
     :global(.swiper-slide-active) {
       filter: none !important;
       pointer-events: auto;
-      transition: filter $transition-slow, transform $transition-slow;
+      transition: filter 1.2s ease, transform 1.2s ease;
     }
 
     .workshop-card {
