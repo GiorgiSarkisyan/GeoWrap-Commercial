@@ -65,7 +65,7 @@
 
 .workshop-section {
   height: auto;
-  min-height: 92dvh;
+  min-height: 92vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -74,12 +74,12 @@
   padding: $offset15 0 $offset20;
 
   @include mobile {
-    min-height: 80dvh;
+    min-height: 80vh;
     padding: 50px 0 $offset15;
   }
 
   @include tablet {
-    min-height: 80dvh;
+    min-height: 80vh;
     padding: 55px 0 70px;
   }
 

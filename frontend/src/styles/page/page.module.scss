@@ -156,7 +156,7 @@
 }
 
 .main-section {
-  height: 100dvh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -315,7 +315,7 @@
 
 // about-us section
 .about-section {
-  height: 90dvh;
+  height: 90vh;
   background-color: $color-secondary-bg;
   padding: 40px;
   display: flex;
@@ -435,7 +435,7 @@
 // Services Section
 .service-section {
   background-color: $color-primary-bg;
-  height: 90dvh;
+  height: 90vh;
 
   .service-content {
     padding: 0px 100px;
@@ -677,7 +677,7 @@
 }
 
 .workshop-section {
-  height: 90dvh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -830,7 +830,7 @@
 // contact section
 .contact-section {
   background-color: $color-primary-bg;
-  height: 90dvh;
+  height: 90vh;
   padding: 100px 0px;
 
   .contact-content {

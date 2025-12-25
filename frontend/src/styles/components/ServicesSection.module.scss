@@ -43,7 +43,7 @@
 .service-section {
   background-color: $color-primary-bg;
   height: auto;
-  min-height: 92dvh;
+  min-height: 92vh;
   padding: $offset10 0;
 
   @include mobile {
@@ -55,7 +55,7 @@
   }
 
   @include desktop {
-    min-height: 92dvh;
+    min-height: 92vh;
   }
 
   @include large-desktop {
@@ -64,7 +64,7 @@
   }
 
   @media (min-width: 1600px) {
-    height: 92dvh;
+    height: 92vh;
     min-height: auto;
     padding: 0;
   }
