@@ -159,10 +159,10 @@ export default function ReviewsSection() {
                   </div>
                 </SwiperSlide>
               ))}
+              {/* Move pagination element inside Swiper for correct targeting and mobile visibility */}
+              <div className={styles["swiper-pagination"]} />
             </Swiper>
           </div>
-
-          <div className={styles["swiper-pagination"]} />
 
           <div className={styles["nav-buttons-wrapper"]}>
             <button

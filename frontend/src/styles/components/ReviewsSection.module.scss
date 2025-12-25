@@ -164,7 +164,6 @@
         position: static;
         margin-top: 15px;
         gap: 6px;
-        /* Ensure pagination is always visible and not pushed out of view on mobile */
       }
 
       :global(.swiper-pagination-bullet) {
