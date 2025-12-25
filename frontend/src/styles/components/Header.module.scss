@@ -189,8 +189,6 @@
       top: 70px;
       left: 0;
       right: 0;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       padding: $offset5;
       box-shadow: 0 $offset1 6px rgba(0, 0, 0, 0.1);
       animation: slideDown $transition-default;
