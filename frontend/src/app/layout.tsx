@@ -47,14 +47,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/no-bgnew.png", sizes: "any" },
-      { url: "/images/no-bgnew.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/no-bgnew.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/black-icon.png", sizes: "any" },
+      { url: "/images/black-icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/black-icon.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [
-      { url: "/images/no-bgnew.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/black-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: ["/images/no-bgnew.png"],
+    shortcut: ["/images/black-icon.png"],
   },
   openGraph: {
     type: "website",
