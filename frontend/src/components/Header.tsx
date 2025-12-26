@@ -87,9 +87,7 @@ export default function Header() {
     let heroHeight = 0;
 
     const updateHeroHeight = () => {
-      const heroEl = document.querySelector(
-        `.${styles["main-section"]}`
-      ) as HTMLElement | null;
+      const heroEl = document.getElementById("hero") as HTMLElement | null;
       heroHeight = heroEl ? heroEl.offsetHeight : window.innerHeight;
     };
 
@@ -99,8 +97,8 @@ export default function Header() {
       requestAnimationFrame(() => {
         const scrollY = window.scrollY || window.pageYOffset;
 
-        // Header gets full color at 65% of hero section
-        const fadeLimit = heroHeight * 0.65;
+        // Header gets full color after scrolling 1.5x the hero section height
+        const fadeLimit = heroHeight * 0.6;
         const ratio = Math.min(Math.max(scrollY / fadeLimit, 0), 1);
 
         const bgColor = `rgba(33, 32, 32, ${ratio})`;
@@ -132,7 +130,7 @@ export default function Header() {
     <header ref={headerRef} className={styles["header"]}>
       <div className={styles["header-navigator"]}>
         <Image
-          src="/images/no-bgnew.png"
+          src="/images/logo.png"
           alt="geo-wrap-logo"
           width={235}
           height={45}
