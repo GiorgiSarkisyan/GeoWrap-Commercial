@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GeoWrap Tbilisi | Car Wrapping & PPF Services in Georgia",
     description:
-      "GeoWrap is Georgia's automotive customization studio specializing in paint protection film (PPF), vinyl wraps, ceramic coating, and premium detailing services in Tbilisi.",
+      "GeoWrap is Georgia's automotive customization studio specializing in paint protection film (PPF), vinyl wraps, ceramic coating, and detailing services in Tbilisi.",
     images: ["https://www.geowrap.ge/images/workshop/ferrari-296gtb.jpg"],
   },
   robots: {
