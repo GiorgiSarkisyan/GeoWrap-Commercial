@@ -15,7 +15,7 @@ export default function Footer() {
         <div className={styles["footer-left"]}>
           <div className={styles["footer-logo"]}>
             <Image
-              src="/images/no-bgnew.png"
+              src="/images/logo.png"
               alt="GeoWrap Logo"
               width={200}
               height={38}

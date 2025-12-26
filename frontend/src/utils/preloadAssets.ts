@@ -1,14 +1,10 @@
 const IMAGES = [
-  "/images/no-bg.png",
-  "/images/full-logo.jpg",
-  "/images/logo-black.png",
-  "/images/logo-hover.jpg",
-  "/images/cropped.png",
-  "/images/about-us.jpeg",
-  "/images/about-us2.jpg",
+  "/images/logo.png",
+  "/images/black-icon.png",
   "/images/about-us4.jpeg",
   "/images/flags/en.png",
   "/images/flags/ru.png",
+  "/images/flags/ka.png",
 ];
 
 const VIDEOS = ["/compressed.mp4"];

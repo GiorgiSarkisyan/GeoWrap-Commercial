@@ -14,7 +14,7 @@ export default function Page() {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     name: "GeoWrap",
-    image: "https://www.geowrap.ge/images/no-bgnew.png",
+    image: "https://www.geowrap.ge/images/logo.png",
     "@id": "https://www.geowrap.ge",
     url: "https://www.geowrap.ge",
     telephone: "+995593103113",
@@ -84,7 +84,7 @@ export default function Page() {
     "@type": "Organization",
     name: "GeoWrap",
     url: "https://www.geowrap.ge",
-    logo: "https://www.geowrap.ge/images/no-bgnew.png",
+    logo: "https://www.geowrap.ge/images/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+995593103113",
