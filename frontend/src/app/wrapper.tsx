@@ -11,6 +11,14 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
   const { language } = useLanguage();
   const lenis = useLenis();
 
+  // Force scroll to top immediately on page load to prevent browser scroll restoration
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
@@ -29,11 +37,10 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
     }
 
     lenis?.stop();
-
-    const scrollY = window.scrollY;
+    window.scrollTo(0, 0);
 
     document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
+    document.body.style.top = "0px";
     document.body.style.width = "100%";
 
     return () => {
@@ -41,7 +48,7 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
       document.body.style.top = "";
       document.body.style.width = "";
 
-      window.scrollTo(0, scrollY);
+      window.scrollTo(0, 0);
       lenis?.start();
     };
   }, [isLoading, lenis]);

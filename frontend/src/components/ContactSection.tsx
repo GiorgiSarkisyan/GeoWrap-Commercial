@@ -75,6 +75,11 @@ export default function ContactSection() {
       y: 30,
     });
 
+    // Refresh ScrollTrigger to handle page refresh at different scroll positions
+    const refreshTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -116,6 +121,7 @@ export default function ContactSection() {
     );
 
     return () => {
+      clearTimeout(refreshTimeout);
       ScrollTrigger.getAll().forEach((trigger) => {
         if (trigger.vars.trigger === section) {
           trigger.kill();

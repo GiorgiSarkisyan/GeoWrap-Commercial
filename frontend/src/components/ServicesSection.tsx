@@ -76,6 +76,11 @@ export default function ServicesSection() {
       rotationX: 15,
     });
 
+    // Refresh ScrollTrigger to handle page refresh at different scroll positions
+    const refreshTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
     if (isMobile) {
       const cards = Array.from(serviceCardsRef.current.children);
       const triggers: ScrollTrigger[] = [];
@@ -99,6 +104,7 @@ export default function ServicesSection() {
       });
 
       return () => {
+        clearTimeout(refreshTimeout);
         triggers.forEach((trigger) => trigger?.kill());
       };
     } else {
@@ -125,6 +131,7 @@ export default function ServicesSection() {
       });
 
       return () => {
+        clearTimeout(refreshTimeout);
         tl.kill();
       };
     }
