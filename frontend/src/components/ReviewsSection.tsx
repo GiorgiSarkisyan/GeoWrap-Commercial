@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,8 +22,6 @@ export default function ReviewsSection() {
   const googleRatingRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (
@@ -122,8 +120,8 @@ export default function ReviewsSection() {
               spaceBetween={30}
               slidesPerView={1}
               navigation={{
-                prevEl: prevRef.current,
-                nextEl: nextRef.current,
+                prevEl: ".review-prev",
+                nextEl: ".review-next",
               }}
               pagination={{
                 clickable: true,
@@ -136,14 +134,6 @@ export default function ReviewsSection() {
               speed={400}
               loop={true}
               className={styles["review-swiper"]}
-              onInit={(swiper) => {
-                // @ts-expect-error possible null value
-                swiper.params.navigation.prevEl = prevRef.current;
-                // @ts-expect-error possible null value
-                swiper.params.navigation.nextEl = nextRef.current;
-                swiper.navigation.init();
-                swiper.navigation.update();
-              }}
             >
               {reviews.map((review, index) => (
                 <SwiperSlide key={index}>
@@ -175,8 +165,7 @@ export default function ReviewsSection() {
           </div>
           <div className={styles["nav-buttons-wrapper"]}>
             <button
-              ref={prevRef}
-              className={`${styles["nav-button"]} ${styles["nav-button-prev"]}`}
+              className={`${styles["nav-button"]} ${styles["nav-button-prev"]} review-prev`}
               aria-label="Previous review"
               type="button"
             >
@@ -194,8 +183,7 @@ export default function ReviewsSection() {
             </a>
 
             <button
-              ref={nextRef}
-              className={`${styles["nav-button"]} ${styles["nav-button-next"]}`}
+              className={`${styles["nav-button"]} ${styles["nav-button-next"]} review-next`}
               aria-label="Next review"
               type="button"
             >
