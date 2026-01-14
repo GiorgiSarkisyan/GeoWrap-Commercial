@@ -92,7 +92,10 @@ export default function HeroSection() {
       <div className={styles["main-content"]}>
         <div className={styles["main-content-inner"]}>
           <h1>
-            {t.hero.title} <span ref={el}></span>
+            {t.hero.title} <span ref={el} aria-hidden="true"></span>
+            <span className={styles["seo-text"]}>
+              {t.hero.title} Car Wrapping & PPF Services in Tbilisi, Georgia
+            </span>
           </h1>
           <button onClick={() => scrollToSection("workshop")}>
             {t.hero.button}

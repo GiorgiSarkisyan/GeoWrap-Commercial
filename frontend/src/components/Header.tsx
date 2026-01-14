@@ -40,7 +40,7 @@ export default function Header() {
     const element = document.getElementById(id);
     if (!element) return;
 
-    const headerOffset = 80;
+    const headerOffset = 70;
     const elementPosition = element.offsetTop - headerOffset;
 
     lenis.scrollTo(elementPosition, {

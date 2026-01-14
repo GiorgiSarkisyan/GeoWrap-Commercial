@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { BsEye } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { useLanguage } from "../contexts/LanguageContext";
 import styles from "../styles/components/ServicesSection.module.scss";

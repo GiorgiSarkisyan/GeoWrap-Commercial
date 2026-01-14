@@ -50,7 +50,7 @@ export default function Page() {
     ],
     priceRange: "$$",
     description:
-      "GeoWrap is a automotive customization and protection workshop based in Tbilisi, Georgia, specializing in high-end vehicle wrapping and detailing services.",
+      "GeoWrap is an automotive customization and protection workshop located in Tbilisi, Georgia, specializing in professional vehicle wrapping, paint protection film installation, ceramic coating, and comprehensive detailing services for luxury and performance vehicles.",
     serviceType: [
       "Paint Protection Film (PPF)",
       "Vinyl Car Wrapping",
@@ -58,6 +58,8 @@ export default function Page() {
       "Interior Detailing",
       "Window Tinting",
       "Auto Detailing",
+      "Paintless Dent Repair",
+      "Rim Powder Coating",
     ],
     aggregateRating: {
       "@type": "AggregateRating",

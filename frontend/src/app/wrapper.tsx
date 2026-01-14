@@ -11,7 +11,6 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
   const { language } = useLanguage();
   const lenis = useLenis();
 
-  // Update HTML lang attribute based on language
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
