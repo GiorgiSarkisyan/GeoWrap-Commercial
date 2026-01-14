@@ -1,15 +1,46 @@
 const IMAGES = [
+  // Logo and icons
   "/images/logo.png",
   "/images/black-icon.png",
+
+  // About section
   "/images/about-us4.jpeg",
+
+  // Flags
   "/images/flags/en.png",
   "/images/flags/ru.png",
   "/images/flags/ka.png",
+
+  // Workshop images
+  "/images/workshop/audi-rs6.jpg",
+  "/images/workshop/bmw-m850.jpg",
+  "/images/workshop/chevrolet-corvette-c3.jpg",
+  "/images/workshop/ferrari-296gtb.jpg",
+  "/images/workshop/lamborghini-urus-performante.jpg",
+  "/images/workshop/mercedes-sl190.jpg",
+  "/images/workshop/mercedes-v300.jpg",
+  "/images/workshop/mercedes-gt63.jpg",
+  "/images/workshop/porsche-911-carrera.jpg",
+  "/images/workshop/porsche-911-carrera-gts.jpg",
+  "/images/workshop/porsche-gt3.jpg",
+  "/images/workshop/shelby-cobra.jpg",
+
+  // Service images
+  "/images/services/premium-quality-ppf.jpg",
+  "/images/services/premium-vinyl-wraps.jpg",
+  "/images/services/interior-detailing.jpg",
+  "/images/services/ceramic-coating.jpg",
+  "/images/services/wheel-powder-coating-paint.jpg",
+  "/images/services/window-tint.jpg",
+  "/images/services/noise-vibration-insulation.jpg",
+  "/images/services/polishing.jpg",
+  "/images/services/detailing-wash.jpg",
+  "/images/services/pdr-dent-repair.jpg",
 ];
 
 const VIDEOS = ["/compressed.mp4"];
 
-const MAX_PRELOAD_TIME = 3000;
+const MAX_PRELOAD_TIME = 8000;
 
 const preloadImages = (): Promise<void[]> => {
   return Promise.all(
@@ -17,7 +48,7 @@ const preloadImages = (): Promise<void[]> => {
       (src) =>
         new Promise<void>((resolve) => {
           const img = new Image();
-          const timeout = setTimeout(() => resolve(), 2000);
+          const timeout = setTimeout(() => resolve(), 5000);
 
           img.onload = () => {
             clearTimeout(timeout);
@@ -44,7 +75,7 @@ const preloadVideos = (): Promise<void[]> => {
       (src) =>
         new Promise<void>((resolve) => {
           const video = document.createElement("video");
-          const timeout = setTimeout(() => resolve(), 2000);
+          const timeout = setTimeout(() => resolve(), 5000);
 
           video.onloadeddata = () => {
             clearTimeout(timeout);
