@@ -136,6 +136,23 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "GeoWrap",
+                  item: "https://www.geowrap.ge",
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${montserrat.variable} ${oswald.variable} ${exo2.variable}`}
