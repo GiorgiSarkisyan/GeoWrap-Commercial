@@ -73,7 +73,7 @@ npm start
 - Canonical domain: https://www.geowrap.ge
 - Structured data (JSON-LD) for site name
 - Open Graph and Twitter metadata for rich sharing
-- Custom favicon: `/images/black-icon.png`
+- Custom favicon: `/icons/favicon.png`
 
 ## Deployment
 

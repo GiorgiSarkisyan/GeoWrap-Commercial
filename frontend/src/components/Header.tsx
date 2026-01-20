@@ -130,7 +130,7 @@ export default function Header() {
     <header ref={headerRef} className={styles["header"]}>
       <div className={styles["header-navigator"]}>
         <Image
-          src="/images/logo.png"
+          src="/icons/logo.png"
           alt="geo-wrap-logo"
           width={235}
           height={45}

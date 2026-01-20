@@ -33,6 +33,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/icons/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+        ],
+      },
+      {
         source: "/:path*.mp4",
         headers: [
           {

@@ -1,19 +1,19 @@
 {
-  "name": "GeoWrap - Premium Car Wrapping Services",
+  "name": "GeoWrap | Car Wrapping & PPF Services in Georgia",
   "short_name": "GeoWrap",
-  "description": "Premium automotive customization and protection services in Tbilisi, Georgia",
+  "description": "automotive customization studio in Georgia, specializing in paint protection film (PPF), vinyl car wrapping, ceramic coating, and auto detailing services.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1919",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/images/no-bgnew.png",
+      "src": "/icons/favicon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/images/no-bgnew.png",
+      "src": "/icons/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
