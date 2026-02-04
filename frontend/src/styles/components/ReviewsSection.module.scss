@@ -1,7 +1,7 @@
 @use "../variables.module" as *;
 
 .reviews-section {
-  height: 75vh;
+  min-height: 75vh;
   background-color: $color-secondary-bg;
   padding: $offset15 $offset10;
   display: flex;

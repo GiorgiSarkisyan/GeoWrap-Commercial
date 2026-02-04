@@ -22,6 +22,7 @@ const exo2 = Exo_2({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.geowrap.ge"),
+  applicationName: "GeoWrap",
   title: {
     default: "GeoWrap | Car Wrapping & PPF Services in Georgia",
     template: "%s | GeoWrap",

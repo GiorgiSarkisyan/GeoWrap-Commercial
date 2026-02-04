@@ -1,7 +1,7 @@
 const IMAGES = [
   // Logo and icons
   "/icons/logo.png",
-  "/icons/favicon.png",
+  "/icons/favicon.svg",
 
   // About section
   "/images/about-us4.jpeg",
