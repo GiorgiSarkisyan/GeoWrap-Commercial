@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.geowrap.ge"),
   applicationName: "GeoWrap",
   title: {
-    default: "GeoWrap | Car Wrapping & PPF Services in Georgia",
+    default: "GeoWrap | For those who know",
     template: "%s | GeoWrap",
   },
   description:
