@@ -1,7 +1,12 @@
 const IMAGES = [
   // Logo and icons
   "/icons/logo.png",
-  "/icons/favicon.svg",
+  "/icons/favicon.ico",
+  "/icons/favicon-16x16.png",
+  "/icons/favicon-32x32.png",
+  "/icons/apple-touch-icon.png",
+  "/icons/android-chrome-192x192.png",
+  "/icons/android-chrome-512x512.png",
 
   // About section
   "/images/about-us4.jpeg",
@@ -59,8 +64,8 @@ const preloadImages = (): Promise<void[]> => {
             resolve();
           };
           img.src = src;
-        })
-    )
+        }),
+    ),
   );
 };
 
@@ -87,8 +92,8 @@ const preloadVideos = (): Promise<void[]> => {
           };
           video.preload = "auto";
           video.src = src;
-        })
-    )
+        }),
+    ),
   );
 };
 
