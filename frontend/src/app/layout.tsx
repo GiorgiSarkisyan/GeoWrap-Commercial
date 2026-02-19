@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     alternateLocale: ["ka_GE", "ru_RU"],
     url: "https://www.geowrap.ge",
     siteName: "GeoWrap",
-    title: "GeoWrap | Car Wrapping & PPF Services in Georgia",
+    title: "GeoWrap | For those who know",
     description:
       "automotive customization studio in Tbilisi, Georgia specializing in paint protection film (PPF), vinyl car wrapping, ceramic coating, and auto detailing services.",
     images: [
@@ -101,13 +101,13 @@ export const metadata: Metadata = {
         url: "https://www.geowrap.ge/images/workshop/ferrari-296gtb.jpg",
         width: 1200,
         height: 630,
-        alt: "GeoWrap - Car Wrapping & PPF Services - Ferrari 296 GTB",
+        alt: "GeoWrap - For Those Who Know - Ferrari 296 GTB",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GeoWrap | Car Wrapping & PPF Services in Georgia",
+    title: "GeoWrap | For those who know",
     description:
       "automotive customization studio in Georgia specializing in paint protection film (PPF), vinyl car wrapping, ceramic coating, and detailing services.",
     images: ["https://www.geowrap.ge/images/workshop/ferrari-296gtb.jpg"],
